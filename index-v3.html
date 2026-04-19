@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeff Zipman — Vancouver's Longest-Running Tennis Coach</title>
+  <meta name="description" content="Thirty years coaching on Vancouver's courts. Tennis Canada Certified Coach 1. Complimentary video analysis included with every lesson.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper:    '#F1ECE0',
+            'paper-2':'#E7E1D3',
+            'paper-3':'#DBD4C2',
+            ink:      '#0E1714',
+            clay:     '#B84A30',
+            'clay-2': '#8E3923',
+            chartreuse: '#C9E265',
+            'chart-2':  '#B3CD4E',
+          },
+          fontFamily: {
+            display: ['"Fraunces"', 'serif'],
+            body:    ['"Fraunces"', 'serif'],
+            mono:    ['"JetBrains Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F1ECE0;
+      color: #0E1714;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 24;
+      font-optical-sizing: auto;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ============= PAPER GRAIN ============= */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.05;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    /* ============= FRAUNCES VARIATIONS ============= */
+    .f-display {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.03em;
+      line-height: 0.92;
+    }
+    .f-display-italic {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.025em;
+      line-height: 0.95;
+    }
+    .f-body-serif {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 24;
+    }
+    .f-pullquote {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    /* ============= LABELS / TICKER ============= */
+    .ticker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .dateline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1.7;
+      color: rgba(14,23,20,0.55);
+    }
+    .marginalia {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      line-height: 1.65;
+      color: rgba(14,23,20,0.6);
+    }
+
+    /* ============= SCORELINE TICKER ============= */
+    @keyframes tickerScroll {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
+    }
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      animation: tickerScroll 70s linear infinite;
+      white-space: nowrap;
+      will-change: transform;
+    }
+    .ticker-track > * {
+      padding: 0 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ============= RULES & DIVIDERS ============= */
+    .rule-thin { border-top: 1px solid rgba(14,23,20,0.18); }
+    .rule-med  { border-top: 1px solid #0E1714; }
+    .rule-clay { border-top: 2px solid #B84A30; }
+    .rule-double {
+      border-top: 1px solid #0E1714;
+      border-bottom: 1px solid #0E1714;
+      height: 4px;
+    }
+
+    /* ============= REVEAL ANIMATIONS ============= */
+    .reveal-line {
+      overflow: hidden;
+      display: block;
+      padding-bottom: 0.18em;
+      margin-bottom: -0.18em;
+    }
+    .reveal-line > span {
+      display: inline-block;
+      transform: translateY(110%);
+      opacity: 0;
+      transition: transform 1.1s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease;
+    }
+    .reveal-line.visible > span {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .fade {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .draw-rule {
+      position: relative;
+      overflow: hidden;
+    }
+    .draw-rule::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      height: 2px;
+      width: 0;
+      background: #B84A30;
+      transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .draw-rule.visible::after { width: 100%; }
+
+    /* ============= DROP CAP ============= */
+    .drop-cap::first-letter {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-variation-settings: 'opsz' 144;
+      float: left;
+      font-size: 5.8em;
+      line-height: 0.82;
+      padding: 0.04em 0.1em 0 0;
+      color: #B84A30;
+    }
+
+    /* ============= CHAPTER MARK ============= */
+    .chapter-num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-variation-settings: 'opsz' 144;
+      font-weight: 300;
+      color: #B84A30;
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+    }
+
+    /* ============= CTA SLAB ============= */
+    .cta-slab {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #0E1714;
+      color: #F1ECE0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      padding: 1.1rem 1.75rem;
+      border: 1px solid #0E1714;
+      overflow: hidden;
+      transition: color 0.4s ease;
+    }
+    .cta-slab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #C9E265;
+      transform: translateY(101%);
+      transition: transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 0;
+    }
+    .cta-slab > * { position: relative; z-index: 1; }
+    .cta-slab:hover { color: #0E1714; }
+    .cta-slab:hover::before { transform: translateY(0); }
+
+    /* ============= EDITORIAL LINK ============= */
+    .ed-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #0E1714;
+      border-bottom: 1px solid #0E1714;
+      padding-bottom: 3px;
+      transition: color 0.3s, border-color 0.3s, letter-spacing 0.4s;
+    }
+    .ed-link .arrow { transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1); }
+    .ed-link:hover { color: #B84A30; border-color: #B84A30; letter-spacing: 0.26em; }
+    .ed-link:hover .arrow { transform: translateX(6px); }
+
+    /* ============= HIGHLIGHT ============= */
+    .highlight {
+      background-image: linear-gradient(transparent 55%, rgba(201,226,101,0.55) 55%);
+      padding: 0 0.08em;
+    }
+
+    /* ============= PHOTO FRAME ============= */
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      background: #0E1714;
+      box-shadow:
+        0 1px 0 rgba(14,23,20,0.08),
+        0 2px 18px -4px rgba(14,23,20,0.15),
+        0 14px 40px -10px rgba(14,23,20,0.22);
+    }
+    .photo-frame img {
+      transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-frame:hover img { transform: scale(1.03); }
+
+    /* ============= SELECTION ============= */
+    ::selection { background: #C9E265; color: #0E1714; }
+
+    /* ============= SCROLLBAR ============= */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #E7E1D3; }
+    ::-webkit-scrollbar-thumb { background: #0E1714; }
+
+    /* ============= SERVICE TABLE ============= */
+    .service-row {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 1.25rem;
+      padding: 1.75rem 0.25rem;
+      border-top: 1px solid rgba(14,23,20,0.18);
+      transition: background 0.4s ease, padding 0.3s ease;
+      position: relative;
+    }
+    .service-row:last-child { border-bottom: 1px solid rgba(14,23,20,0.18); }
+    .service-row:hover { background: rgba(201,226,101,0.15); padding-left: 0.75rem; }
+    @media (min-width: 768px) {
+      .service-row {
+        grid-template-columns: 64px 260px 1fr 140px;
+        gap: 2.25rem;
+        padding: 2.5rem 0.5rem;
+      }
+    }
+
+    /* ============= SIGNATURE ============= */
+    .signature {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-variation-settings: 'opsz' 72;
+      color: rgba(14,23,20,0.5);
+    }
+
+    /* ============= TICKER GLYPH ============= */
+    .t-diamond { color: #B84A30; font-size: 0.7em; vertical-align: 2px; }
+
+    /* ============= FIGURE NUMBER ============= */
+    .fig-num {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-variation-settings: 'opsz' 144;
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    /* ============= GRID HELPERS ============= */
+    .ed-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    @media (min-width: 768px) { .ed-grid { gap: 1.5rem; } }
+
+    /* ============= HOVER FIGURE ============= */
+    .stat-cell {
+      transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .stat-cell:hover { transform: translateY(-4px); }
+    .stat-cell:hover .fig-num { color: #B84A30; }
+    .fig-num { transition: color 0.4s ease; }
+
+    /* ============= TICK ============= */
+    .tick-mark {
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      align-items: center;
+      justify-content: center;
+      background: #C9E265;
+      color: #0E1714;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      margin-right: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ============= CONTACT CARDS ============= */
+    .contact-card {
+      position: relative;
+      border: 1px solid rgba(14,23,20,0.2);
+      padding: 1.5rem 1.25rem;
+      background: #F1ECE0;
+      transition: border-color 0.4s, background 0.4s;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(14,23,20,0.08);
+      pointer-events: none;
+      transition: border-color 0.4s, inset 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .contact-card:hover { border-color: #0E1714; background: #E7E1D3; }
+    .contact-card:hover::before { inset: 6px; border-color: rgba(184,74,48,0.4); }
+
+    /* ============= VARIABLE DISPLAY SIZE ============= */
+    .display-xl {
+      font-size: clamp(3.75rem, 14vw, 12rem);
+    }
+    .display-lg {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+    }
+    .display-md {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    .chapter-size {
+      font-size: clamp(5rem, 14vw, 14rem);
+    }
+
+    /* ============= COURT DIAGRAM LINE ============= */
+    .court-line-h {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #0E1714 20%, #0E1714 80%, transparent);
+    }
+    .court-line-v {
+      width: 1px;
+      background: linear-gradient(180deg, transparent, #0E1714 20%, #0E1714 80%, transparent);
+    }
+
+    /* ============= MOBILE NAV ============= */
+    @media (max-width: 767px) {
+      .mobile-hide { display: none; }
+    }
+
+    /* Prevent layout shift on masthead folio */
+    .folio-row { min-height: 28px; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       STICKY SCOREBOARD HEADER
+       ============================================================ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-ink text-paper border-b border-paper/10">
+    <!-- Ticker strip -->
+    <div class="overflow-hidden h-7 flex items-center border-b border-paper/10">
+      <div class="ticker-track">
+        <span class="ticker text-paper/80">Jeff Zipman Tennis</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/70">Est · 1994</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/80">Vancouver · BC</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-chartreuse">30 · Yrs · Coaching</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/70">Tennis Canada · CP1</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/80">Complimentary · Video · Analysis</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/70">Private · &amp; · Group</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/80">All · Levels · Welcome</span>
+        <span class="ticker t-diamond">◆</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker text-paper/80">Jeff Zipman Tennis</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/70">Est · 1994</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/80">Vancouver · BC</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-chartreuse">30 · Yrs · Coaching</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/70">Tennis Canada · CP1</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/80">Complimentary · Video · Analysis</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/70">Private · &amp; · Group</span>
+        <span class="ticker t-diamond">◆</span>
+        <span class="ticker text-paper/80">All · Levels · Welcome</span>
+        <span class="ticker t-diamond">◆</span>
+      </div>
+    </div>
+    <!-- Nav row -->
+    <nav class="flex items-center justify-between px-4 md:px-8 h-12">
+      <a href="#" class="flex items-center gap-2">
+        <span class="f-display text-paper text-xl" style="font-variation-settings: 'opsz' 144;">Jeff<span class="text-clay">·</span>Zipman</span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 label text-paper/60">
+        <a href="#chapter-01" class="hover:text-paper transition-colors">01 · Coach</a>
+        <a href="#chapter-02" class="hover:text-paper transition-colors">02 · Services</a>
+        <a href="#chapter-03" class="hover:text-paper transition-colors">03 · Analysis</a>
+        <a href="#chapter-04" class="hover:text-paper transition-colors">04 · Rates</a>
+      </div>
+      <a href="#enlist" class="label flex items-center gap-2 text-paper border border-paper/40 px-3 py-1.5 hover:bg-chartreuse hover:text-ink hover:border-chartreuse transition-all">
+        <span>Enlist</span>
+        <span class="arrow">→</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div class="h-[76px]"></div>
+
+  <!-- ============================================================
+       MASTHEAD / HERO
+       ============================================================ -->
+  <section class="relative pt-10 md:pt-20">
+
+    <!-- Masthead headline -->
+    <div class="px-4 md:px-8 max-w-[1400px] mx-auto">
+      <div class="max-w-[920px]">
+        <!-- Small kicker -->
+        <div class="mb-6 md:mb-10 fade">
+          <span class="label text-clay">A Profile</span>
+        </div>
+
+        <!-- Massive headline -->
+        <h1 class="f-display display-xl">
+          <span class="reveal-line"><span>Thirty&nbsp;years,</span></span>
+          <span class="reveal-line" style="transition-delay: 0.1s"><span>one&nbsp;<em class="f-display-italic text-clay">baseline,</em></span></span>
+          <span class="reveal-line" style="transition-delay: 0.2s"><span>one&nbsp;game.</span></span>
+        </h1>
+
+        <!-- Deck -->
+        <p class="f-body-serif text-ink/75 text-lg md:text-xl leading-relaxed max-w-[560px] mt-8 md:mt-10 fade" style="transition-delay: 0.35s">
+          Jeff Zipman, Vancouver's longest-running private tennis coach. Tennis Canada Certified. Video analysis included — no upcharge, no asterisks.
+        </p>
+
+        <!-- CTA row -->
+        <div class="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center fade" style="transition-delay: 0.55s">
+          <a href="#enlist" class="cta-slab">
+            <span>Book a Session</span>
+            <span class="arrow" style="transition:transform 0.4s cubic-bezier(0.19,1,0.22,1);">→</span>
+          </a>
+          <a href="#chapter-03" class="ed-link">
+            <span>Free Video Analysis</span>
+            <span class="arrow">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero image: full bleed with simple caption -->
+    <div class="mt-16 md:mt-24">
+      <div class="mx-4 md:mx-8">
+        <div class="photo-frame aspect-[16/9] md:aspect-[21/9] max-h-[720px] fade">
+          <img src="images/hero.jpg" alt="Tennis court at dusk, Vancouver — wet, misty, pre-session"
+               loading="eager"
+               onerror="this.parentElement.style.background='linear-gradient(180deg,#1C2A26 0%,#0E1714 100%)';this.style.display='none';">
+        </div>
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mt-4">
+          <p class="caption max-w-lg">
+            Stanley Park courts, end of session. Wet asphalt, trees closing in.
+          </p>
+          <p class="caption text-right">
+            Vancouver, BC
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CREDENTIALS — DATA STRIP
+       ============================================================ -->
+  <section class="mt-24 md:mt-32 px-4 md:px-8 max-w-[1400px] mx-auto">
+    <div class="rule-med"></div>
+    <div class="py-10 md:py-14">
+      <!-- Section heading row -->
+      <div class="mb-8 md:mb-12 fade">
+        <span class="label text-ink">The Record</span>
+      </div>
+
+      <!-- Stats grid: 4-column data block -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 gap-x-6">
+        <!-- Stat 1 -->
+        <div class="stat-cell md:pr-6 md:border-r md:border-ink/20">
+          <div class="fig-num display-lg text-ink">30</div>
+          <div class="mt-2 f-body-serif italic text-ink/60 text-sm">years on the baseline</div>
+          <div class="mt-1 label text-ink/50">1994 → Present</div>
+        </div>
+        <!-- Stat 2 -->
+        <div class="stat-cell md:px-6 md:border-r md:border-ink/20">
+          <div class="fig-num display-lg text-ink">CP<span class="text-clay">1</span></div>
+          <div class="mt-2 f-body-serif italic text-ink/60 text-sm">Tennis Canada certified</div>
+          <div class="mt-1 label text-ink/50">Coach · Level One</div>
+        </div>
+        <!-- Stat 3 -->
+        <div class="stat-cell md:px-6 md:border-r md:border-ink/20">
+          <div class="fig-num display-lg text-ink">$<span class="text-clay">0</span></div>
+          <div class="mt-2 f-body-serif italic text-ink/60 text-sm">video analysis surcharge</div>
+          <div class="mt-1 label text-ink/50">Included · Always</div>
+        </div>
+        <!-- Stat 4 -->
+        <div class="stat-cell md:pl-6">
+          <div class="fig-num display-lg text-ink">∞</div>
+          <div class="mt-2 f-body-serif italic text-ink/60 text-sm">levels welcome</div>
+          <div class="mt-1 label text-ink/50">Beginner → Competitive</div>
+        </div>
+      </div>
+    </div>
+    <div class="rule-med"></div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 01 — THE COACH
+       ============================================================ -->
+  <section id="chapter-01" class="pt-24 md:pt-40 px-4 md:px-8 max-w-[1400px] mx-auto">
+    <div class="ed-grid">
+      <!-- Chapter mark -->
+      <div class="col-span-12 md:col-span-2 flex md:flex-col items-baseline md:items-start gap-4 md:sticky md:top-28 md:self-start">
+        <div class="chapter-num chapter-size">01</div>
+        <div class="md:mt-3">
+          <div class="label text-ink/60 mb-1">Chapter</div>
+          <div class="f-body-serif italic text-ink text-xl">The Coach</div>
+        </div>
+      </div>
+
+      <!-- Main column -->
+      <div class="col-span-12 md:col-span-6 md:col-start-3 mt-8 md:mt-0">
+
+        <h2 class="f-display display-md text-ink fade draw-rule pb-5 mb-10">
+          A player-first <em class="f-display-italic">method,</em> refined over three decades.
+        </h2>
+
+        <!-- Drop-cap lede -->
+        <p class="f-body-serif text-ink text-lg md:text-xl leading-[1.55] mb-6 drop-cap fade" style="transition-delay: 0.1s">
+          Jeff Zipman has spent thirty years on the court — not just playing, but studying every angle of the game. As a <span class="highlight">Tennis Canada Certified Coach 1</span>, he brings a methodical, player-first approach that adapts to your level, your goals, and the specific way you move.
+        </p>
+
+        <p class="f-body-serif text-ink/80 text-base md:text-lg leading-[1.65] mb-10 fade" style="transition-delay: 0.2s">
+          Whether you are picking up a racket for the first time or sharpening a competitive edge, the work begins the same way: observe, record, diagnose, adjust. Then run it back. The goal is never the session — it is the next ten.
+        </p>
+
+        <!-- Pull quote -->
+        <blockquote class="my-14 md:my-20 pl-6 md:pl-10 border-l-2 border-clay fade" style="transition-delay: 0.3s">
+          <p class="f-pullquote text-3xl md:text-5xl text-ink">
+            &ldquo;See what the eye <em>misses.</em> Fix what the body <em>hides.</em>&rdquo;
+          </p>
+          <footer class="mt-5 dateline text-ink/55">
+            — Coaching philosophy, in one line.
+          </footer>
+        </blockquote>
+
+        <!-- Secondary paragraph -->
+        <p class="f-body-serif text-ink/80 text-base md:text-lg leading-[1.65] mb-10 fade" style="transition-delay: 0.35s">
+          Sessions blend technical precision — grip, stance, point of contact — with the kind of court intuition that only comes from decades of dedicated practice. The outcome: players who leave each lesson knowing <em>exactly</em> what to drill before the next one.
+        </p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-12 fade" style="transition-delay: 0.4s">
+          <span class="label border border-ink/30 px-3 py-1.5 text-ink/70">All Levels</span>
+          <span class="label border border-ink/30 px-3 py-1.5 text-ink/70">Adults &amp; Juniors</span>
+          <span class="label border border-ink/30 px-3 py-1.5 text-ink/70">Private &amp; Group</span>
+          <span class="label border border-clay px-3 py-1.5 text-clay">Video Included</span>
+        </div>
+      </div>
+
+      <!-- Photo + marginalia column -->
+      <div class="col-span-12 md:col-span-4 mt-10 md:mt-0">
+        <div class="photo-frame aspect-[4/5] fade">
+          <img src="images/coach-portrait.jpg" alt="Jeff Zipman on court, Vancouver" loading="lazy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg,#1C2A26,#0E1714)';this.style.display='none';">
+        </div>
+        <div class="mt-4">
+          <p class="caption">
+            Jeff Zipman, mid-walk. Stanley Park courts, early session.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 02 — THE SERVICES (data table)
+       ============================================================ -->
+  <section id="chapter-02" class="pt-24 md:pt-40 px-4 md:px-8 max-w-[1400px] mx-auto">
+    <div class="ed-grid">
+      <!-- Chapter mark -->
+      <div class="col-span-12 md:col-span-2 flex md:flex-col items-baseline md:items-start gap-4">
+        <div class="chapter-num chapter-size">02</div>
+        <div class="md:mt-3">
+          <div class="label text-ink/60 mb-1">Chapter</div>
+          <div class="f-body-serif italic text-ink text-xl">The Services</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="col-span-12 md:col-span-10 mt-10 md:mt-0">
+        <div class="md:pl-8">
+          <h2 class="f-display display-md text-ink fade mb-6">
+            What's <em class="f-display-italic text-clay">on offer.</em>
+          </h2>
+          <p class="f-body-serif text-ink/70 text-base md:text-lg leading-relaxed max-w-2xl mb-12 fade" style="transition-delay: 0.1s">
+            Three formats, one standard. Every booking includes a complimentary video breakdown — the work that separates a lesson from a lesson remembered.
+          </p>
+
+          <!-- Table header -->
+          <div class="hidden md:grid grid-cols-[64px_260px_1fr_140px] gap-9 pb-3 border-b border-ink/30">
+            <div class="label text-ink/45">No.</div>
+            <div class="label text-ink/45">Format</div>
+            <div class="label text-ink/45">Description</div>
+            <div class="label text-ink/45 text-right">Notes</div>
+          </div>
+
+          <!-- Service 01 -->
+          <div class="service-row fade">
+            <div class="f-body-serif italic text-clay text-xl md:text-2xl row-start-1">01</div>
+            <div class="col-start-2 row-start-1 md:col-start-2">
+              <div class="f-display text-2xl md:text-3xl text-ink mb-1">Private Lessons</div>
+              <div class="label text-ink/50 md:hidden">One-on-One</div>
+            </div>
+            <div class="col-start-2 md:col-start-3 mt-3 md:mt-0">
+              <p class="f-body-serif text-ink/75 text-base leading-relaxed">
+                One-on-one coaching built around your goals. Technique refinement, match strategy, and targeted drill work — prescribed after observation, not templated.
+              </p>
+            </div>
+            <div class="col-start-2 md:col-start-4 md:text-right mt-3 md:mt-0">
+              <span class="label text-ink/70">All Levels</span>
+            </div>
+          </div>
+
+          <!-- Service 02 -->
+          <div class="service-row fade" style="transition-delay: 0.1s">
+            <div class="f-body-serif italic text-clay text-xl md:text-2xl row-start-1">02</div>
+            <div class="col-start-2 row-start-1 md:col-start-2">
+              <div class="f-display text-2xl md:text-3xl text-ink mb-1">Group Sessions</div>
+              <div class="label text-ink/50 md:hidden">2 → 4 Players</div>
+            </div>
+            <div class="col-start-2 md:col-start-3 mt-3 md:mt-0">
+              <p class="f-body-serif text-ink/75 text-base leading-relaxed">
+                Small-group coaching that builds competitive skills through structured drills and match play. Learn with — and push — each other.
+              </p>
+            </div>
+            <div class="col-start-2 md:col-start-4 md:text-right mt-3 md:mt-0">
+              <span class="label text-ink/70">Multi-Session</span>
+            </div>
+          </div>
+
+          <!-- Service 03 — featured -->
+          <div class="service-row fade" style="transition-delay: 0.2s">
+            <div class="f-body-serif italic text-clay text-xl md:text-2xl row-start-1">03</div>
+            <div class="col-start-2 row-start-1 md:col-start-2">
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
+                <div class="f-display text-2xl md:text-3xl text-ink">Video Analysis</div>
+                <span class="label bg-chartreuse text-ink px-2 py-0.5">Included</span>
+              </div>
+              <div class="label text-ink/50 md:hidden">Every Student</div>
+            </div>
+            <div class="col-start-2 md:col-start-3 mt-3 md:mt-0">
+              <p class="f-body-serif text-ink/75 text-base leading-relaxed">
+                Complimentary stroke-by-stroke review. Jeff records, breaks down form, and delivers a written set of follow-up drills. No surcharge. Every student.
+              </p>
+            </div>
+            <div class="md:col-start-4 md:text-right mt-2 md:mt-0">
+              <span class="label text-clay">Complimentary</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 03 — THE ANALYSIS
+       ============================================================ -->
+  <section id="chapter-03" class="pt-24 md:pt-40 pb-24 md:pb-32 mt-24 md:mt-32 bg-paper-2">
+    <div class="px-4 md:px-8 max-w-[1400px] mx-auto">
+      <div class="ed-grid">
+
+        <!-- Chapter mark -->
+        <div class="col-span-12 md:col-span-2 flex md:flex-col items-baseline md:items-start gap-4">
+          <div class="chapter-num chapter-size">03</div>
+          <div class="md:mt-3">
+            <div class="label text-ink/60 mb-1">Chapter</div>
+            <div class="f-body-serif italic text-ink text-xl">The Analysis</div>
+          </div>
+        </div>
+
+        <!-- Copy -->
+        <div class="col-span-12 md:col-span-4 md:col-start-3 mt-10 md:mt-0">
+          <div class="flex items-center gap-3 mb-5 fade">
+            <span class="label text-clay">Complimentary</span>
+            <span class="h-px flex-1 bg-ink/30"></span>
+          </div>
+          <h2 class="f-display display-md text-ink fade mb-6">
+            See your game, <em class="f-display-italic">frame by frame.</em>
+          </h2>
+          <p class="f-body-serif text-ink/80 text-base md:text-lg leading-relaxed mb-5 fade" style="transition-delay: 0.1s">
+            Every student receives a video analysis of their game — recorded during the session, broken down stroke by stroke, and returned with a written set of follow-up drills.
+          </p>
+          <p class="f-body-serif text-ink/70 text-base leading-relaxed mb-8 fade" style="transition-delay: 0.15s">
+            The sort of review most coaches charge extra for. Here it is the minimum standard.
+          </p>
+
+          <!-- Numbered benefits -->
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-start gap-3 fade" style="transition-delay: 0.2s">
+              <span class="f-display italic text-clay text-xl w-6 shrink-0">i.</span>
+              <span class="f-body-serif text-ink leading-relaxed">Stroke-by-stroke video review with slow-motion playback</span>
+            </li>
+            <li class="flex items-start gap-3 fade" style="transition-delay: 0.25s">
+              <span class="f-display italic text-clay text-xl w-6 shrink-0">ii.</span>
+              <span class="f-body-serif text-ink leading-relaxed">Written follow-up drill program, personalized</span>
+            </li>
+            <li class="flex items-start gap-3 fade" style="transition-delay: 0.3s">
+              <span class="f-display italic text-clay text-xl w-6 shrink-0">iii.</span>
+              <span class="f-body-serif text-ink leading-relaxed">Progress tracked across sessions — visible, measurable</span>
+            </li>
+          </ul>
+
+          <a href="#enlist" class="cta-slab fade" style="transition-delay: 0.4s">
+            <span>Claim Your Analysis</span>
+            <span class="arrow" style="transition:transform 0.4s cubic-bezier(0.19,1,0.22,1);">→</span>
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="col-span-12 md:col-span-6 md:col-start-7 mt-14 md:mt-0 md:sticky md:top-28 md:self-start">
+          <div class="photo-frame aspect-[4/3] fade">
+            <img src="images/video-analysis.jpg" alt="Video analysis session — tablet showing stroke breakdown on court bench" loading="lazy"
+                 onerror="this.parentElement.style.background='linear-gradient(135deg,#1C2A26,#0E1714)';this.style.display='none';">
+          </div>
+          <p class="caption mt-4">
+            Post-session review. Form overlaid, contact point flagged, follow-up drills to be assigned.
+          </p>
+
+          <!-- Marginal data block -->
+          <div class="mt-8 p-5 border border-ink/20 bg-paper">
+            <div class="label text-clay mb-3">By the Numbers</div>
+            <div class="space-y-2.5" style="font-family:'JetBrains Mono',monospace; font-size:12px;">
+              <div class="flex justify-between border-b border-ink/10 pb-2">
+                <span class="text-ink/70">Delivered within</span>
+                <span class="text-ink font-medium">24 hrs</span>
+              </div>
+              <div class="flex justify-between border-b border-ink/10 pb-2">
+                <span class="text-ink/70">Format</span>
+                <span class="text-ink font-medium">Video + Notes</span>
+              </div>
+              <div class="flex justify-between border-b border-ink/10 pb-2">
+                <span class="text-ink/70">Surcharge</span>
+                <span class="text-clay font-medium">$ 0.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-ink/70">Eligibility</span>
+                <span class="text-ink font-medium">Every student</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 04 — THE RATES
+       ============================================================ -->
+  <section id="chapter-04" class="pt-24 md:pt-40 px-4 md:px-8 max-w-[1400px] mx-auto">
+    <div class="ed-grid">
+
+      <!-- Chapter mark -->
+      <div class="col-span-12 md:col-span-2 flex md:flex-col items-baseline md:items-start gap-4">
+        <div class="chapter-num chapter-size">04</div>
+        <div class="md:mt-3">
+          <div class="label text-ink/60 mb-1">Chapter</div>
+          <div class="f-body-serif italic text-ink text-xl">The Rates</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="col-span-12 md:col-span-10 mt-10 md:mt-0">
+        <div class="md:pl-8">
+          <h2 class="f-display display-md text-ink fade mb-6">
+            Two discounts, <em class="f-display-italic">one principle.</em>
+          </h2>
+          <p class="f-body-serif text-ink/70 text-base md:text-lg leading-relaxed max-w-xl mb-12 fade" style="transition-delay: 0.1s">
+            Good tennis is a long conversation. Pricing rewards the players who stay in it.
+          </p>
+
+          <!-- Two-up block -->
+          <div class="grid md:grid-cols-2 gap-6 md:gap-10">
+
+            <!-- Senior -->
+            <div class="border-t-2 border-ink pt-6 fade" style="transition-delay: 0.15s">
+              <div class="flex items-baseline justify-between mb-5">
+                <div class="flex items-baseline gap-3">
+                  <span class="f-display italic text-clay text-2xl">a.</span>
+                  <div class="label text-ink/60">Discount One</div>
+                </div>
+                <div class="label text-ink/40">Ongoing</div>
+              </div>
+              <h3 class="f-display text-3xl md:text-4xl text-ink mb-4">Senior rate.</h3>
+              <p class="f-body-serif text-ink/75 leading-relaxed mb-5">
+                Special pricing for senior players. Age is an asset on the court — patience, placement, pattern recognition. The game rewards all three.
+              </p>
+              <div class="flex items-center gap-3">
+                <span class="tick-mark">✓</span>
+                <span class="label text-ink/70">Applied at booking</span>
+              </div>
+            </div>
+
+            <!-- Multi-session -->
+            <div class="border-t-2 border-ink pt-6 fade" style="transition-delay: 0.3s">
+              <div class="flex items-baseline justify-between mb-5">
+                <div class="flex items-baseline gap-3">
+                  <span class="f-display italic text-clay text-2xl">b.</span>
+                  <div class="label text-ink/60">Discount Two</div>
+                </div>
+                <div class="label text-ink/40">Book 5+</div>
+              </div>
+              <h3 class="f-display text-3xl md:text-4xl text-ink mb-4">Multi-session pack.</h3>
+              <p class="f-body-serif text-ink/75 leading-relaxed mb-5">
+                Commit to the work. Book a run of sessions and pay less per hour. Consistency is where breakthroughs live — the rate reflects that.
+              </p>
+              <div class="flex items-center gap-3">
+                <span class="tick-mark">✓</span>
+                <span class="label text-ink/70">Savings compound across the pack</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ENLIST / CONTACT
+       ============================================================ -->
+  <section id="enlist" class="mt-24 md:mt-40 pt-20 md:pt-28 pb-16 md:pb-24 bg-ink text-paper relative overflow-hidden">
+    <div class="px-4 md:px-8 max-w-[1400px] mx-auto">
+
+
+      <div class="ed-grid items-start">
+
+        <!-- Headline col -->
+        <div class="col-span-12 md:col-span-7">
+          <div class="label text-chartreuse mb-6 fade">To Enlist →</div>
+          <h2 class="f-display display-lg text-paper fade" style="transition-delay: 0.05s">
+            Next <em class="f-display-italic text-chartreuse">session</em><br>
+            starts with<br>
+            a call.
+          </h2>
+          <p class="f-body-serif text-paper/70 text-lg leading-relaxed max-w-lg mt-8 fade" style="transition-delay: 0.15s">
+            Reach out about a lesson, or claim your free video analysis to see where the game can go next. No forms. Just pick up the phone or hit send.
+          </p>
+
+          <div class="mt-10 fade" style="transition-delay: 0.25s">
+            <a href="mailto:jzipman@hotmail.com?subject=Tennis%20Lesson%20Inquiry" class="cta-slab">
+              <span>Send Inquiry</span>
+              <span class="arrow" style="transition:transform 0.4s cubic-bezier(0.19,1,0.22,1);">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact card col -->
+        <div class="col-span-12 md:col-span-5 mt-14 md:mt-0 md:pl-10">
+          <div class="label text-paper/50 mb-5">Direct Contact</div>
+
+          <a href="tel:604-340-5424" class="contact-card block group mb-4 fade" style="transition-delay: 0.1s">
+            <div class="flex items-baseline justify-between mb-1">
+              <div class="label text-clay">Voice</div>
+              <div class="label text-ink/40 group-hover:text-clay transition-colors">→</div>
+            </div>
+            <div class="f-display text-2xl md:text-3xl text-ink">604 · 340 · 5424</div>
+          </a>
+
+          <a href="mailto:jzipman@hotmail.com" class="contact-card block group mb-6 fade" style="transition-delay: 0.2s">
+            <div class="flex items-baseline justify-between mb-1">
+              <div class="label text-clay">Electronic</div>
+              <div class="label text-ink/40 group-hover:text-clay transition-colors">→</div>
+            </div>
+            <div class="f-display text-xl md:text-2xl text-ink break-all">jzipman@hotmail.com</div>
+          </a>
+
+          <div class="mt-8 space-y-2.5" style="font-family:'JetBrains Mono',monospace; font-size:11px;">
+            <div class="flex justify-between border-b border-paper/15 pb-2">
+              <span class="text-paper/55 label">Based</span>
+              <span class="text-paper">Vancouver, BC</span>
+            </div>
+            <div class="flex justify-between border-b border-paper/15 pb-2">
+              <span class="text-paper/55 label">Hours</span>
+              <span class="text-paper">By appointment</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-paper/55 label">Reply</span>
+              <span class="text-chartreuse">Within 24 hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MASTHEAD FOOTER — newspaper colophon
+       ============================================================ -->
+  <footer class="bg-ink text-paper border-t border-paper/15">
+    <div class="px-4 md:px-8 max-w-[1400px] mx-auto py-12 md:py-16">
+
+      <!-- Big wordmark -->
+      <div class="border-b border-paper/15 pb-10 md:pb-14 mb-10">
+        <div class="f-display text-paper leading-none" style="font-size:clamp(3rem,11vw,9rem); letter-spacing:-0.04em;">
+          Jeff<span class="text-clay">·</span>Zipman
+        </div>
+        <div class="label text-paper/50 mt-3">Vancouver · Since 1994 · Tennis Canada CP1</div>
+      </div>
+
+      <!-- Columns -->
+      <div class="grid md:grid-cols-3 gap-10 md:gap-6 mb-12">
+        <div>
+          <div class="label text-clay mb-3">Contact</div>
+          <a href="tel:604-340-5424" class="block f-body-serif text-paper hover:text-chartreuse transition-colors mb-1">604 · 340 · 5424</a>
+          <a href="mailto:jzipman@hotmail.com" class="block f-body-serif text-paper/80 hover:text-chartreuse transition-colors text-sm">jzipman@hotmail.com</a>
+        </div>
+        <div>
+          <div class="label text-clay mb-3">Location</div>
+          <p class="f-body-serif text-paper/80">Vancouver, BC<br>Courts · by arrangement</p>
+        </div>
+        <div>
+          <div class="label text-clay mb-3">Sections</div>
+          <div class="flex flex-col gap-1 label text-paper/65">
+            <a href="#chapter-01" class="hover:text-paper transition-colors">01 · Coach</a>
+            <a href="#chapter-02" class="hover:text-paper transition-colors">02 · Services</a>
+            <a href="#chapter-03" class="hover:text-paper transition-colors">03 · Analysis</a>
+            <a href="#chapter-04" class="hover:text-paper transition-colors">04 · Rates</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-paper/15 pt-6">
+        <span class="label text-paper/40">© 2026 · Jeff Zipman Tennis · All rights reserved</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BANANA BYTES CREDIT
+       ============================================================ -->
+  <div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.5; background:#0E1714;">
+    <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:#DBD4C2; font-family:'JetBrains Mono',monospace;">
+      Mockup created by Banana Bytes
+    </a>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.fade, .reveal-line, .draw-rule').forEach(el => revealObserver.observe(el));
+
+    // Hero lines reveal on load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelectorAll('section .reveal-line').forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 100);
+        });
+      }, 180);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href.length < 2) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const headerOffset = 72;
+          const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Stat hover — increment the "30" counter briefly for play
+    const yearsStat = document.querySelectorAll('.stat-cell')[0];
+    if (yearsStat) {
+      const yearsNum = yearsStat.querySelector('.fig-num');
+      const final = 30;
+      yearsStat.addEventListener('mouseenter', () => {
+        let n = 0;
+        const step = () => {
+          if (n <= final) {
+            yearsNum.textContent = n;
+            n += 2;
+            requestAnimationFrame(step);
+          } else {
+            yearsNum.textContent = final;
+          }
+        };
+        step();
+      });
+    }
+  </script>
+
+</body>
+</html>

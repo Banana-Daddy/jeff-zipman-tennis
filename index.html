@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Outfit:wght@300;400;500&family=Unbounded:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,6 +38,13 @@
       --brass: #A8823A;
       --brass-2: #C09A4E;
       --oxford: #F4EEE0;
+
+      /* v5 — baseline */
+      --fx-baseline: #1E241C;
+      --fx-forest:   #3A4735;
+      --fx-sage:     #5B6C52;
+      --fx-chalk:    #EEE8DA;
+      --fx-chalk-2:  #D8DBB0;
     }
 
     body {
@@ -126,7 +133,12 @@
     }
     @media (min-width: 1280px) {
       .directions {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 1500px) {
+      .directions {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
@@ -563,6 +575,88 @@
       z-index: 2;
     }
 
+    /* ============= V5 — BASELINE (FRONTEND-FX) ============= */
+    .card-v5 {
+      background: var(--fx-baseline);
+      color: var(--fx-chalk);
+    }
+    .card-v5::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 28px;
+      background: var(--fx-forest);
+      z-index: 1;
+    }
+    .card-v5::after { box-shadow: inset 0 0 0 1px rgba(216,219,176,0.2); }
+    .card-v5:hover::after { box-shadow: inset 0 0 0 1px rgba(216,219,176,0.55); }
+    .card-v5 .v5-chyron {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 28px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fx-chalk-2);
+    }
+    .card-v5 .v5-chyron .v5-dot {
+      width: 6px; height: 6px;
+      background: #FF4326;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+    .card-v5 .card-top { margin-top: 1.25rem; }
+    .card-v5 .card-label { color: var(--fx-chalk-2); font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; }
+    .card-v5 .card-tag   { color: rgba(238,232,218,0.4); font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; }
+    .card-v5 .card-name {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 500;
+      font-size: clamp(2.25rem, 6vw, 4.5rem);
+      color: var(--fx-chalk);
+      letter-spacing: -0.055em;
+      line-height: 0.88;
+    }
+    .card-v5 .card-name em {
+      font-style: normal;
+      font-weight: 300;
+      color: var(--fx-chalk-2);
+    }
+    .card-v5 .card-descriptor {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: rgba(238,232,218,0.72);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .card-v5 .card-attrs { color: var(--fx-chalk-2); }
+    .card-v5 .card-attrs > div { border-color: rgba(216,219,176,0.25); }
+    .card-v5 .card-attrs > div span:first-child { color: rgba(238,232,218,0.55); }
+    .card-v5 .card-attrs > div span:last-child { color: var(--fx-chalk); }
+    .card-v5 .card-enter {
+      color: var(--fx-chalk);
+      border-color: rgba(216,219,176,0.5);
+    }
+    .card-v5:hover .card-enter { color: var(--fx-chalk-2); border-color: var(--fx-chalk-2); }
+    .card-v5 .v5-score {
+      position: absolute;
+      right: 1.5rem;
+      bottom: 1rem;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 300;
+      font-size: clamp(5rem, 12vw, 9rem);
+      line-height: 0.85;
+      color: rgba(216,219,176,0.08);
+      pointer-events: none;
+      z-index: 1;
+      letter-spacing: -0.05em;
+    }
+
     /* ============= FOOTER META ============= */
     .meta-strip {
       padding: 1.25rem 1.5rem;
@@ -618,11 +712,11 @@
   <header class="masthead">
     <div class="masthead-folio">
       <span class="mono">Banana Bytes · Studio</span>
-      <span class="mono">Design Directions · 3 + 1 archived</span>
+      <span class="mono">Design Directions · 4 + 1 archived</span>
     </div>
     <h1 class="masthead-title fade-in">Jeff Zipman <em>Tennis</em></h1>
     <p class="masthead-sub fade-in d1">
-      Three active directions. Open any of them to explore the full mockup. Nothing here is final — pick the one that feels right and we&rsquo;ll push it.
+      Four active directions. Open any of them to explore the full mockup. Nothing here is final — pick the one that feels right and we&rsquo;ll push it.
     </p>
   </header>
 
@@ -716,6 +810,52 @@
       </div>
     </a>
 
+    <!-- V5 · Baseline (FRONTEND-FX) -->
+    <a href="index-frontendfx.html" class="card card-v5 fade-in d4">
+      <span class="v5-chyron" aria-hidden="true">
+        <span><span class="v5-dot"></span>On-court · Vancouver</span>
+        <span>REC · 01:12:48</span>
+      </span>
+      <span class="v5-score" aria-hidden="true">30</span>
+
+      <div class="card-top">
+        <span class="card-label">Direction · 04</span>
+        <span class="card-tag">Broadcast · Sage</span>
+      </div>
+
+      <div class="card-mid">
+        <div class="card-name">ZIP<em>MAN.</em></div>
+        <p class="card-descriptor">
+          Sport broadcast annual meets 1970s tennis photo book. Monochrome sage-green, Unbounded display, broadcast chyron and scorecard lessons. Technical Swiss grid — premium through discipline, not decoration.
+        </p>
+        <div class="card-attrs">
+          <div>
+            <span>Palette</span>
+            <span>Sage · Chalk · Baseline</span>
+          </div>
+          <div>
+            <span>Type</span>
+            <span>Unbounded · Plex Sans · Plex Mono</span>
+          </div>
+          <div>
+            <span>Mood</span>
+            <span>Broadcast · Editorial</span>
+          </div>
+          <div>
+            <span>Signature</span>
+            <span>Chyron + scorecard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-bottom">
+        <span class="card-enter">
+          <span>View Baseline</span>
+          <span class="arrow">→</span>
+        </span>
+      </div>
+    </a>
+
     <!-- V4 · Club Racquet (PRO-MAX) -->
     <a href="index-promax.html" class="card card-v4 fade-in d4">
       <span class="v4-rule" aria-hidden="true"></span>
@@ -779,7 +919,7 @@
        ============================================================ -->
   <div class="meta-strip">
     <span class="mono">Jeff Zipman Tennis · Vancouver, BC</span>
-    <span class="mono">Three live directions · One archived</span>
+    <span class="mono">Four live directions · One archived</span>
   </div>
 
   <!-- ============================================================

@@ -7,6 +7,30 @@ Jeff has minimal online presence — no website, no social media coaching profil
 
 ## Design Decisions
 
+### Direction: Baseline (v5 · FRONTEND-FX)
+- **Mood**: Sport broadcast annual meets 1970s tennis photo book. Technical Swiss grid with broadcast chyron overlays. Monochrome discipline — the restraint is the premium signal.
+- **Fonts**: Unbounded (display, geometric, distinctive) + IBM Plex Sans (body, rational editorial) + IBM Plex Mono (timecodes, chyron, telemetry)
+  - Display: https://fonts.google.com/specimen/Unbounded
+  - Body: https://fonts.google.com/specimen/IBM+Plex+Sans
+  - Mono: https://fonts.google.com/specimen/IBM+Plex+Mono
+- **Colors**:
+  - `#1E241C` — Baseline (deep green-black, primary dark)
+  - `#3A4735` — Forest (mid-tone green, ticker/CTAs)
+  - `#5B6C52` — Sage (lighter green, accent word-color)
+  - `#EEE8DA` — Chalk (warm ivory, primary light)
+  - `#D8DBB0` — Chalk-line (pale sage-cream hairlines)
+  - `#0A0A0A` — Carbon (body type on light)
+  - No third accent color — monochrome discipline
+- **Layout**: Technical broadcast structure — fixed top chyron-nav (LIVE dot, section links, book CTA) → vertical timecode ticker down the left margin → full-bleed hero with monochrome court image, oversized Unbounded "ZIPMAN" lockup, 4-cell stat chyron at base → horizontal mono ticker strip → editorial about with pull quote + figure image + 4-cell stat strip → scoreboard lesson section on baseline dark (00–03 scorelines, mono meta) → broadcast-still video section (REC timecode + JZ/VANCOUVER chyron + play mark) + 3-step process → match-card rates → massive "PLAY." CTA on baseline dark.
+- **Signature element**: **Broadcast chyron aesthetic** — fixed top nav doubles as a live broadcast bar with a pulsing LIVE dot, vertical timecode running down the left margin of every section, and scorecard-style lesson rows. Every section has a "File BL-0X" side tag that reads like an archival call number.
+- **Trends used**:
+  - Technical Swiss grid — 12-col alignment, mathematical spacing
+  - Broadcast data chyron — fixed top bar with live indicator, REC timecodes, stat cells
+  - Scoreboard lessons — 01/02/03 scorelines with set numbers and "Film incl." meta
+  - Monochrome green photography — both Grok images toned to a tight sage/forest/chalk range
+  - Oversized kinetic display — Unbounded "ZIPMAN" and "PLAY." as full-bleed type moments
+- **Workflow**: FRONTEND-FX MODE — direction generated via the `frontend-design:frontend-design` skill. Two fresh Grok images generated at 2K, no asset recycling from v1/v2/v3/v4.
+
 ### Direction: Club Racquet (v4 · PRO-MAX)
 - **Mood**: Prep-school blazer meets Vogue serif. Ralph Lauren courtside, not tech SaaS. Member-only, heritage, unhurried.
 - **Fonts**: Bodoni Moda (display, italic-forward serif) + Manrope (body, clean sans) + JetBrains Mono (telephone / monospace details)
@@ -50,9 +74,10 @@ Jeff has minimal online presence — no website, no social media coaching profil
 
 ## Content Inventory
 - **Images pulled**: None available — no existing website or CDN
-- **Images generated**: 5 via Grok Imagine (see IMAGE_LOG.md)
+- **Images generated**: 7 via Grok Imagine (see IMAGE_LOG.md)
   - v1 set (Midnight Gold): hero.jpg, coach-portrait.jpg, video-analysis.jpg
   - v4 set (Club Racquet / PRO-MAX): promax-portrait.jpg, promax-video.jpg
+  - v5 set (Baseline / FRONTEND-FX): fx-hero.jpg, fx-figure.jpg
   - No recycling between builds — each direction is served by its own fresh assets
 - **Key copy**: All written for Jeff — taglines, descriptions, CTAs. Flagged in ACCURACY.md for review.
 - **Links preserved**:

@@ -85,3 +85,43 @@
 - Both reviewers scored ≥5 on every metric
 - Grand total for Jeff Zipman (all four builds): **$0.10**
 - Well under per-build cap ($0.75) and monthly cap ($10.00)
+
+---
+
+### #6 — fx-hero.jpg (FRONTEND-FX build)
+![fx-hero.jpg](images/fx-hero.jpg)
+- **Timestamp**: 2026-04-19 16:33
+- **Tier**: 1 | **API**: Grok Imagine Standard 2K | **Cost**: $0.02
+- **Exec Time**: 10s
+- **Slot**: Hero background (full-bleed, 16:9 landscape)
+- **Prompt**: "Aerial photograph of an empty public tennis court at dusk, stark white court lines forming geometric patterns across a deep sage-green hard-court surface. Shot from directly above at a slight high angle, the net casting a long shadow across the baseline. Atmospheric haze softening the edges. Medium-format Hasselblad aesthetic, muted sage and forest-green monochrome tones throughout, ivory chalk lines, no people, no text, no logos. Magnum Photos editorial feel, 1970s tennis annual aesthetic, fine film grain, long calm shadows, analog quiet, painterly depth, deep green tonal range from forest to sage to chalk."
+- **Claude Review**: Use Case 10/10 | Prompt Accuracy 9/10
+- **Grok QA Review**: Technical 8/10 | Prompt Accuracy 8/10 | Issues: warm golden haze top third breaks strict monochrome; net shadow slightly over-crisp vs. the atmospheric haze elsewhere
+- **Attempts**: 1/2
+- **Status**: ✓ Used
+- **Notes**: Perfect hero backdrop. Warm upper glow actually helps separate text overlay zones. Accepted first attempt.
+
+---
+
+### #7 — fx-figure.jpg (FRONTEND-FX build)
+![fx-figure.jpg](images/fx-figure.jpg)
+- **Timestamp**: 2026-04-19 16:35
+- **Tier**: 1 | **API**: Grok Imagine Standard 2K | **Cost**: $0.02
+- **Exec Time**: 9s
+- **Slot**: About section figure-plate (3:4 portrait)
+- **Prompt**: "Editorial photograph of a tennis coach from behind at the service line of an empty hard court at twilight, shown as a dark silhouette against the deep sage-green surface, long shadow stretching toward the net. Shot on medium-format at blue hour with natural light, monochrome sage-forest green palette throughout, ivory-white court lines defining the geometry of the frame, a single vintage wooden racquet held low at the coach's side. No face visible. Hasselblad analog sport photography, fine film grain, painterly depth, 1970s tennis annual feel, atmospheric haze over the baseline, quiet contemplation. Green-on-green tonal range, no other colors, subject reads as a small figure in a large geometric field."
+- **Claude Review**: Use Case 10/10 | Prompt Accuracy 10/10
+- **Grok QA Review**: Technical 6/10 | Prompt Accuracy 8/10 | Issues: floating mist artifact left of net, silhouette has zero bounce light, shadow feels graphic rather than optical, hard top crop
+- **Attempts**: 1/2
+- **Status**: ✓ Used
+- **Notes**: Disagreement between reviewers. Grok reads the image as a photograph and flags "composited" feel; Claude reads it as a poster/annual cover where those graphic qualities are assets, not defects. For this direction (1970s annual / poster aesthetic), the slightly graphic shadow and stylized haze work FOR the design. Accepted — subject fits atmospheric-filler rules (no visible face, does not depict Jeff or a specific court).
+
+---
+
+## Total Cost: $0.14
+- v1 (Midnight Gold): 3 × Grok = $0.06
+- v4 (Club Racquet / PRO-MAX): 2 × Grok = $0.04
+- v5 (Baseline / FRONTEND-FX): 2 × Grok = $0.04
+- 0 edits, 0 rejections (single 20:9 API rejection was unbilled)
+- All 7 images passed QA on first attempt — hard-cap reserves untouched
+- Per-build cap ($0.75) and monthly cap ($10.00) both comfortably under

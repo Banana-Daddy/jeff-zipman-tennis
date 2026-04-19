@@ -109,22 +109,83 @@
       grid-template-columns: 1fr;
       gap: 1.25rem;
       padding: 1.25rem;
-      min-height: calc(100vh - 260px);
     }
-    @media (min-width: 720px) and (max-width: 1199px) {
+    @media (min-width: 900px) {
       .directions {
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
         padding: 1.5rem;
       }
     }
-    @media (min-width: 1200px) {
-      .directions {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1.5rem;
-        padding: 1.5rem;
-      }
+
+    /* ============= ARCHIVE ============= */
+    .archive {
+      padding: 2.25rem 1.5rem;
+      border-top: 1px solid rgba(237,234,226,0.08);
     }
+    @media (min-width: 768px) {
+      .archive { padding: 2.5rem 2rem; }
+    }
+    .archive-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .archive-inner { flex-direction: row; align-items: baseline; gap: 2.5rem; justify-content: space-between; }
+    }
+    .archive-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(237,234,226,0.45);
+    }
+    .archive-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--clay);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .archive-link {
+      display: inline-flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      text-decoration: none;
+      color: rgba(237,234,226,0.6);
+      transition: color 0.35s;
+    }
+    .archive-link:hover { color: var(--bone); }
+    .archive-link .archive-name {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 24;
+      font-style: italic;
+      font-size: 1.05rem;
+      text-decoration: line-through;
+      text-decoration-color: rgba(184,74,48,0.55);
+      text-decoration-thickness: 1px;
+    }
+    .archive-link .archive-desc {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(237,234,226,0.35);
+    }
+    .archive-link .archive-arrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      opacity: 0.5;
+      transition: transform 0.45s cubic-bezier(0.19,1,0.22,1), opacity 0.35s;
+    }
+    .archive-link:hover .archive-arrow { transform: translateX(5px); opacity: 0.95; }
 
     /* ============= DIRECTION CARD (base) ============= */
     .card {
@@ -485,11 +546,11 @@
   <header class="masthead">
     <div class="masthead-folio">
       <span class="mono">Banana Bytes · Studio</span>
-      <span class="mono">Design Directions · 3/3</span>
+      <span class="mono">Design Directions · 2 + 1 archived</span>
     </div>
     <h1 class="masthead-title fade-in">Jeff Zipman <em>Tennis</em></h1>
     <p class="masthead-sub fade-in d1">
-      Three design directions. Open any to explore the full mockup. Nothing here is final — pick the one that feels right and we'll push it.
+      Two active directions. Open either to explore the full mockup. Nothing here is final — pick the one that feels right and we'll push it.
     </p>
   </header>
 
@@ -541,82 +602,19 @@
       </div>
     </a>
 
-    <!-- V2 · Court Report -->
-    <a href="index-v2.html" class="card card-v2 fade-in d3">
-      <div class="card-ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>V.02 · Court Report</span>
-          <span class="diamond">◆</span>
-          <span>Fraunces · Instrument · Mono</span>
-          <span class="diamond">◆</span>
-          <span class="chart">Editorial · Dossier</span>
-          <span class="diamond">◆</span>
-          <span>Paper · Ink · Clay</span>
-          <span class="diamond">◆</span>
-          <span>V.02 · Court Report</span>
-          <span class="diamond">◆</span>
-          <span>Fraunces · Instrument · Mono</span>
-          <span class="diamond">◆</span>
-          <span class="chart">Editorial · Dossier</span>
-          <span class="diamond">◆</span>
-          <span>Paper · Ink · Clay</span>
-          <span class="diamond">◆</span>
-        </div>
-      </div>
-
-      <span class="v2-chapter" aria-hidden="true">02</span>
-
-      <div class="card-top">
-        <span class="card-label">Direction · 02</span>
-        <span class="card-tag">Paper · Editorial</span>
-      </div>
-
-      <div class="card-mid">
-        <div class="card-name">Court <em>Report.</em></div>
-        <p class="card-descriptor">
-          Newspaper-profile treatment on warm paper. Data tables, chapter marks, pull quotes. Reads as a credible record of thirty years' work.
-        </p>
-        <div class="card-attrs">
-          <div>
-            <span>Palette</span>
-            <span>Paper · Ink · Clay Red</span>
-          </div>
-          <div>
-            <span>Type</span>
-            <span>Fraunces · Instrument</span>
-          </div>
-          <div>
-            <span>Mood</span>
-            <span>Editorial · Credible</span>
-          </div>
-          <div>
-            <span>Signature</span>
-            <span>Scoreline ticker</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-bottom">
-        <span class="card-enter">
-          <span>View V2</span>
-          <span class="arrow">→</span>
-        </span>
-      </div>
-    </a>
-
-    <!-- V3 · Plain Press -->
-    <a href="index-v3.html" class="card card-v3 fade-in d4">
+    <!-- V2 · Plain Press (promoted from v3) -->
+    <a href="index-v3.html" class="card card-v3 fade-in d3">
       <span class="v3-quote" aria-hidden="true">,</span>
 
       <div class="card-top">
-        <span class="card-label">Direction · 03</span>
+        <span class="card-label">Direction · 02</span>
         <span class="card-tag">Paper · Quiet</span>
       </div>
 
       <div class="card-mid">
         <div class="card-name">Plain <em>Press.</em></div>
         <p class="card-descriptor">
-          V2 with the volume down. Same paper, same palette, fewer flourishes. Data tables stay; captions, footnotes, and section tickers go. Built for a reader, not an editor.
+          Editorial bones on warm paper, volume turned down. Chaptered structure, data tables, and a single scoreline ticker. Built for the reader, not the editor.
         </p>
         <div class="card-attrs">
           <div>
@@ -640,7 +638,7 @@
 
       <div class="card-bottom">
         <span class="card-enter">
-          <span>View V3</span>
+          <span>View Plain Press</span>
           <span class="arrow">→</span>
         </span>
       </div>
@@ -648,11 +646,25 @@
   </main>
 
   <!-- ============================================================
+       ARCHIVE
+       ============================================================ -->
+  <section class="archive">
+    <div class="archive-inner">
+      <span class="archive-tag">Scrapped</span>
+      <a href="index-v2.html" class="archive-link">
+        <span class="archive-name">Court Report</span>
+        <span class="archive-desc">Earlier editorial cut — too busy for the audience</span>
+        <span class="archive-arrow">View →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
        META STRIP
        ============================================================ -->
   <div class="meta-strip">
     <span class="mono">Jeff Zipman Tennis · Vancouver, BC</span>
-    <span class="mono">Three directions · One source of content</span>
+    <span class="mono">Two live directions · One archived</span>
   </div>
 
   <!-- ============================================================

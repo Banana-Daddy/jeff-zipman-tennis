@@ -44,7 +44,44 @@
 
 ---
 
-## Total Cost: $0.06
-- 3 generations × $0.02 = $0.06
+### #4 — promax-portrait.jpg (PRO-MAX build)
+![promax-portrait.jpg](images/promax-portrait.jpg)
+- **Timestamp**: 2026-04-19 16:15
+- **Tier**: 1 | **API**: Grok Imagine Standard 2K | **Cost**: $0.02
+- **Exec Time**: 8s
+- **Slot**: Hero right column — framed portrait (3:4 aspect)
+- **Prompt**: "Editorial portrait of a tennis coach viewed from behind, standing at the baseline of a quiet Pacific Northwest hard court in late afternoon, watching his student across the net. He wears a cream cable-knit cardigan over tennis whites, a vintage wooden racquet resting on his shoulder, a brass-buckled leather bag at his feet on the court surface. Soft mist hangs in the air from recent rain, backlit by low golden sunlight breaking through evergreen trees at the court's edge. Shot on 85mm with shallow depth of field, warm cream and navy palette with brass highlights catching in the metalwork and in the light. Ralph Lauren Polo editorial feel, Vogue sport spread, classic and unhurried, fine 35mm film grain, no visible face."
+- **Claude Review**: Use Case 9/10 | Prompt Accuracy 9/10
+- **Grok QA Review**: Technical 7/10 | Prompt Accuracy 9/10 | Issues: racquet handle slightly clips into sweater, "PRINCE" logo on grip is warped, distant student figure has soft feet, minor specular reflection on bag
+- **Attempts**: 1/2
+- **Status**: ✓ Used
+- **Notes**: Strong Ralph Lauren / Vogue sport mood. Defects are technical minutiae that are not visible at display size (portrait appears at ~30% viewport width). Accepted on first attempt. Face not visible by design — atmospheric filler, does not depict Jeff.
+
+---
+
+### #5 — promax-video.jpg (PRO-MAX build)
+![promax-video.jpg](images/promax-video.jpg)
+- **Timestamp**: 2026-04-19 16:17
+- **Tier**: 1 | **API**: Grok Imagine Standard 2K | **Cost**: $0.02 (first 20:9 call rejected by Grok, no charge)
+- **Exec Time**: 6s (successful call)
+- **Slot**: Video Analysis feature — editorial portrait column (intended 21:9 cinema, rendered as 2:3 portrait; section redesigned around the portrait asset)
+- **Prompt**: "Wide cinematic photograph of a tablet resting on a polished wooden courtside bench at blue hour, its screen glowing with paused slow-motion tennis footage — a player captured mid-forehand. A coach's hand at the edge of the frame, wearing a brass-buckled watch and a cream cable-knit cuff. The evening haze of the Pacific Northwest drifts over an empty hard court in the background, net and deep-green court surface softly out of focus. Warm screen glow against the cool blue of dusk — deep navy, cream, and brass palette throughout. Shot on 35mm with very shallow focus on the tablet and hand, documentary editorial feel, fine film grain, widescreen cinematic framing, atmosphere of quiet concentration."
+- **Claude Review**: Use Case 9/10 | Prompt Accuracy 7/10 (aspect ratio returned as 2:3 despite 20:9 request — layout adapted)
+- **Grok QA Review**: Technical 9/10 | Prompt Accuracy 8/10 | Issues: screen content reads as a still image rather than motion footage, foreground/background lighting temperatures slightly mismatched
+- **Attempts**: 1/2
+- **Status**: ✓ Used (section redesigned as editorial two-column spread to use the portrait orientation)
+- **Notes**: Grok returned 2:3 portrait despite aspect_ratio:"20:9" request. Image itself is excellent — blue-hour tablet + cable-knit cuff + brass watch nails the Club Racquet aesthetic. Rather than regenerate, the video section was restructured from a 21:9 cinema frame to a two-column editorial spread (portrait image on left, process copy on right). Stronger magazine feel.
+
+---
+
+## Total Cost: $0.10
+- 3 generations (v1) × $0.02 = $0.06
+- 2 generations (PRO-MAX) × $0.02 = $0.04
 - 0 edits
-- 0 rejections
+- 0 rejections (the initial 20:9 request for #5 was rejected by the API, no charge)
+
+### PRO-MAX build (v4 — Club Racquet)
+- 2 fresh images generated, both passed QA on first attempt
+- Both reviewers scored ≥5 on every metric
+- Grand total for Jeff Zipman (all four builds): **$0.10**
+- Well under per-build cap ($0.75) and monthly cap ($10.00)

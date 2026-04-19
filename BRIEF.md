@@ -7,6 +7,27 @@ Jeff has minimal online presence — no website, no social media coaching profil
 
 ## Design Decisions
 
+### Direction: Club Racquet (v4 · PRO-MAX)
+- **Mood**: Prep-school blazer meets Vogue serif. Ralph Lauren courtside, not tech SaaS. Member-only, heritage, unhurried.
+- **Fonts**: Bodoni Moda (display, italic-forward serif) + Manrope (body, clean sans) + JetBrains Mono (telephone / monospace details)
+  - Display: https://fonts.google.com/specimen/Bodoni+Moda
+  - Body: https://fonts.google.com/specimen/Manrope
+- **Colors**:
+  - `#F4EEE0` — Oxford cream (primary background)
+  - `#0E1C36` — Blazer navy (dark sections, CTAs, footer)
+  - `#A8823A` / `#C09A4E` — Brass (accent rules, CTAs, highlight type)
+  - `#EFE6D0` — Parchment (elevated muted surface)
+  - `#1A1A1A` — Ink (body type on cream)
+- **Layout**: Three-act editorial flow — Hero lockup + framed portrait → credentials marquee (navy band, italic serif) → pull-quote essay with drop cap → bento lesson cards on navy → editorial video-analysis spread (portrait image + process column) → rates strip → navy contact crescendo ("Let's play.").
+- **Signature element**: Oversized italic Bodoni **"Z" monogram** used as a brand crest in the nav, repeated as a translucent watermark on every major section, and anchored into the selector card. Brass hairline rules mark every section break.
+- **Trends used**:
+  - Editorial / magazine grid — asymmetric 12-col lockups, section dateline, act numerals
+  - Kinetic italic typography — oversized Bodoni display with staggered word reveal on hero
+  - Bento grid with liquid-glass cards — 3 service cards over navy with brass-tinted glass surfaces
+  - Brass hairline rules — custom dividers replacing standard borders on every section
+  - Marquee ticker — italic serif credentials strip on navy
+- **Workflow**: PRO-MAX MODE — direction generated via the `ui-ux-pro-max` skill's `--design-system` search (Liquid Glass + editorial base), translated into a bespoke "Club Racquet" brief distinct from v1/v2/v3. Two fresh Grok images (no asset recycling from prior builds).
+
 ### Direction: Midnight Gold
 - **Mood**: Private club invitation. Quiet confidence that lets the credentials speak.
 - **Fonts**: Cormorant Garamond (display, serif — elegant weight) + Outfit (body, sans — clean modern)
@@ -29,10 +50,10 @@ Jeff has minimal online presence — no website, no social media coaching profil
 
 ## Content Inventory
 - **Images pulled**: None available — no existing website or CDN
-- **Images generated**: 3 via Grok Imagine (see IMAGE_LOG.md)
-  - hero.jpg — twilight PNW tennis court atmosphere
-  - coach-portrait.jpg — silhouetted coaching figure from behind
-  - video-analysis.jpg — tablet with tennis analysis software
+- **Images generated**: 5 via Grok Imagine (see IMAGE_LOG.md)
+  - v1 set (Midnight Gold): hero.jpg, coach-portrait.jpg, video-analysis.jpg
+  - v4 set (Club Racquet / PRO-MAX): promax-portrait.jpg, promax-video.jpg
+  - No recycling between builds — each direction is served by its own fresh assets
 - **Key copy**: All written for Jeff — taglines, descriptions, CTAs. Flagged in ACCURACY.md for review.
 - **Links preserved**:
   - Phone: tel:604-340-5424

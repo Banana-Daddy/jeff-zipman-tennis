@@ -22,3 +22,4 @@
 
 ## Fixed During Review
 - No corrections needed — all factual content sourced directly from Zack's brief.
+- **v4 PRO-MAX** (`index-promax.html`): Phone number in contact CTA originally rendered in italic Bodoni Moda display, where the italic numerals made "604 · 340 · 5424" read ambiguously as "601 · 310 · 5121". Corrected by switching the phone-number type to JetBrains Mono at 1.75rem — clear, club-extension feel, digits unambiguous. Footer phone already used Manrope sans and was correct.

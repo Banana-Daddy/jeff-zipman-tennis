@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeff Zipman — The Club Racquet · Vancouver Tennis Coaching</title>
+  <meta name="description" content="Jeff Zipman. Thirty years on Vancouver's courts. Tennis Canada Certified Club Professional 1. Private and group lessons with complimentary video analysis.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:    '#F4EEE0',
+            parch:    '#EFE6D0',
+            navy:     '#0E1C36',
+            'navy-2': '#152543',
+            brass:    '#A8823A',
+            'brass-2':'#C09A4E',
+            ink:      '#1A1A1A',
+            muted:    '#5A5245',
+          },
+          fontFamily: {
+            display: ['"Bodoni Moda"', 'serif'],
+            body:    ['"Manrope"', 'sans-serif'],
+            mono:    ['"JetBrains Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F4EEE0;
+      color: #1A1A1A;
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Paper grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='11'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .small-caps {
+      font-family: 'Manrope', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Brass hairline rule */
+    .rule-brass {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #A8823A 20%, #C09A4E 50%, #A8823A 80%, transparent 100%);
+      width: 100%;
+    }
+    .rule-brass-thin {
+      height: 1px;
+      background: #A8823A;
+      opacity: 0.6;
+    }
+
+    /* Z monogram watermark */
+    .z-watermark {
+      position: absolute;
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-weight: 900;
+      color: #A8823A;
+      opacity: 0.06;
+      pointer-events: none;
+      user-select: none;
+      line-height: 0.78;
+    }
+
+    /* Floating nav */
+    .floating-nav {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(244, 238, 224, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(168, 130, 58, 0.35);
+      border-radius: 999px;
+      padding: 0.55rem 0.55rem 0.55rem 1.5rem;
+      box-shadow: 0 10px 40px rgba(14, 28, 54, 0.08), 0 2px 8px rgba(14, 28, 54, 0.04);
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      max-width: calc(100vw - 1.5rem);
+    }
+    .nav-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1A1A1A;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%;
+      bottom: -4px;
+      height: 1px;
+      background: #A8823A;
+      transition: right 0.3s ease;
+    }
+    .nav-link:hover { color: #A8823A; }
+    .nav-link:hover::after { right: 0; }
+    .nav-cta {
+      background: #0E1C36;
+      color: #F4EEE0;
+      padding: 0.6rem 1.15rem;
+      border-radius: 999px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #A8823A;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: #A8823A;
+      border-color: #A8823A;
+      transform: translateY(-1px);
+    }
+
+    /* Hero type */
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hero-word.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-in.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Drop cap */
+    .drop-cap::first-letter {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 5.5rem;
+      line-height: 0.82;
+      float: left;
+      margin: 0.3rem 0.75rem 0 -0.1rem;
+      color: #0E1C36;
+    }
+
+    /* Marquee */
+    .marquee-track {
+      display: flex;
+      gap: 3.5rem;
+      animation: marquee 42s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: #F4EEE0;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+    }
+    .marquee-dot {
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: #A8823A;
+      display: inline-block;
+    }
+
+    /* Liquid glass card over navy */
+    .glass-card {
+      background: linear-gradient(135deg, rgba(244, 238, 224, 0.04) 0%, rgba(244, 238, 224, 0.02) 100%);
+      border: 1px solid rgba(168, 130, 58, 0.28);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 2px;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, background 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(168, 130, 58, 0.1) 50%, transparent 100%);
+      transition: left 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 130, 58, 0.55);
+      background: linear-gradient(135deg, rgba(244, 238, 224, 0.07) 0%, rgba(244, 238, 224, 0.03) 100%);
+    }
+    .glass-card:hover::before {
+      left: 140%;
+    }
+
+    /* Cinema frame for video section */
+    .cinema-frame {
+      position: relative;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+      background: #0E1C36;
+    }
+    .cinema-frame::before,
+    .cinema-frame::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 8px;
+      background: #0E1C36;
+      z-index: 3;
+    }
+    .cinema-frame::before { top: 0; }
+    .cinema-frame::after { bottom: 0; }
+    .cinema-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cinema-tag {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      color: #F4EEE0;
+      z-index: 4;
+    }
+    .cinema-corner {
+      position: absolute;
+      color: #A8823A;
+      z-index: 4;
+    }
+
+    /* Brass underline link */
+    .brass-underline {
+      position: relative;
+      display: inline-block;
+      color: inherit;
+      text-decoration: none;
+      padding-bottom: 2px;
+    }
+    .brass-underline::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 0;
+      height: 1px;
+      background: #A8823A;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-origin: left;
+    }
+    .brass-underline:hover::after {
+      transform: scaleX(1.02);
+      background: #C09A4E;
+      height: 2px;
+    }
+
+    /* Hero portrait frame */
+    .portrait-frame {
+      background: #EFE6D0;
+      padding: 0.9rem;
+      border: 1px solid rgba(168, 130, 58, 0.4);
+      box-shadow: 0 30px 80px rgba(14, 28, 54, 0.18), 0 6px 20px rgba(14, 28, 54, 0.08);
+      position: relative;
+    }
+    .portrait-frame::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(168, 130, 58, 0.25);
+      pointer-events: none;
+    }
+    .portrait-frame img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Service ornaments */
+    .roman {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-size: 2.5rem;
+      color: #A8823A;
+      line-height: 1;
+    }
+
+    /* Section-number badge */
+    .sec-num {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #A8823A;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .sec-num::before {
+      content: '';
+      width: 22px; height: 1px;
+      background: #A8823A;
+      display: inline-block;
+    }
+
+    /* Oversized italic on navy — fashion mag */
+    .vogue-serif {
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+
+    /* Coach crest */
+    .crest {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #A8823A;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #A8823A;
+      background: transparent;
+    }
+    .crest-cream {
+      border-color: #A8823A;
+      color: #A8823A;
+    }
+
+    /* Price ticker dot */
+    @keyframes pulse-brass {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.35; }
+    }
+    .ticker-dot {
+      animation: pulse-brass 2s ease-in-out infinite;
+    }
+
+    @media (min-width: 768px) {
+      .drop-cap::first-letter {
+        font-size: 7rem;
+        margin: 0.25rem 1rem 0 -0.15rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-word { opacity: 1 !important; transform: none !important; }
+      .fade-in   { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================= FLOATING NAV ============================= -->
+<nav class="floating-nav">
+  <div class="crest" style="width:32px;height:32px;font-size:1.1rem;">Z</div>
+  <a href="#story"   class="nav-link hidden md:inline-block">Story</a>
+  <a href="#lessons" class="nav-link hidden md:inline-block">Lessons</a>
+  <a href="#video"   class="nav-link hidden md:inline-block">Video</a>
+  <a href="#contact" class="nav-link hidden md:inline-block">Contact</a>
+  <a href="tel:604-340-5424" class="nav-cta">Book a lesson</a>
+</nav>
+
+<!-- ============================= HERO ============================= -->
+<section class="relative overflow-hidden" style="padding-top: 7rem; padding-bottom: 3rem;">
+  <div class="z-watermark" style="top: 3rem; right: -4rem; font-size: clamp(28rem, 55vw, 56rem);">Z</div>
+
+  <!-- Masthead dateline -->
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <div class="flex items-center justify-between mb-8 md:mb-14">
+      <div class="small-caps" style="color:#5A5245;">Vancouver · British Columbia</div>
+      <div class="small-caps hidden md:block" style="color:#5A5245;">Est. 1994 · Thirty years on court</div>
+      <div class="small-caps" style="color:#A8823A;">№ 01</div>
+    </div>
+    <div class="rule-brass"></div>
+  </div>
+
+  <!-- Name lockup + portrait -->
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 mt-8 md:mt-16">
+    <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-end">
+      <!-- Name -->
+      <div class="md:col-span-7">
+        <div class="small-caps mb-5" style="color:#A8823A;">The Club Racquet — A Private Coaching File</div>
+
+        <h1 class="font-display leading-[0.88] tracking-tight" style="font-size: clamp(4.5rem, 12vw, 10.5rem); color:#1A1A1A; font-weight:500;">
+          <span class="hero-word block">Jeff</span>
+          <span class="hero-word block italic" style="color:#0E1C36; margin-left:0.7em;">Zipman.</span>
+        </h1>
+
+        <div class="mt-8 md:mt-10 max-w-xl">
+          <p class="font-body text-base md:text-lg leading-relaxed" style="color:#1A1A1A;">
+            A lifelong tennis coach based in Vancouver. Tennis Canada Certified
+            <span class="italic" style="color:#0E1C36; font-family:'Bodoni Moda',serif;">Club Professional 1</span>.
+            Thirty years of lessons — same court, same attention, always with a camera rolling.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-5">
+            <a href="tel:604-340-5424" class="nav-cta" style="padding:0.85rem 1.5rem;font-size:12px;">Book a Lesson</a>
+            <a href="#story" class="brass-underline mono" style="color:#0E1C36;">Read the profile ↓</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portrait -->
+      <div class="md:col-span-5">
+        <div class="portrait-frame">
+          <img src="images/promax-portrait.jpg" alt="Jeff Zipman, tennis coach, Vancouver" loading="lazy" />
+          <div class="flex items-center justify-between mt-3 px-1">
+            <span class="mono" style="color:#5A5245;">Plate 01 — The Coach</span>
+            <span class="mono" style="color:#A8823A;">JZ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom rule + caption -->
+  <div class="max-w-7xl mx-auto px-6 md:px-10 mt-16 md:mt-24 relative z-10">
+    <div class="rule-brass"></div>
+    <div class="flex items-center justify-between mt-4">
+      <span class="mono" style="color:#5A5245;">A profile in three acts</span>
+      <span class="mono hidden md:inline" style="color:#5A5245;">Scroll ↓</span>
+      <span class="mono" style="color:#A8823A;">I — II — III</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CREDENTIALS MARQUEE ============================= -->
+<section class="relative" style="background:#0E1C36;">
+  <div class="rule-brass-thin"></div>
+  <div class="overflow-hidden py-8">
+    <div class="marquee-track">
+      <div class="marquee-item">Thirty Years on Court <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Tennis Canada Club Professional 1 <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Complimentary Video Analysis <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Private &amp; Group Sessions <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Senior Discount <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Multi-Session Rates <span class="marquee-dot"></span></div>
+      <div class="marquee-item" aria-hidden="true">Thirty Years on Court <span class="marquee-dot"></span></div>
+      <div class="marquee-item" aria-hidden="true">Tennis Canada Club Professional 1 <span class="marquee-dot"></span></div>
+      <div class="marquee-item" aria-hidden="true">Complimentary Video Analysis <span class="marquee-dot"></span></div>
+      <div class="marquee-item" aria-hidden="true">Private &amp; Group Sessions <span class="marquee-dot"></span></div>
+      <div class="marquee-item" aria-hidden="true">Senior Discount <span class="marquee-dot"></span></div>
+      <div class="marquee-item" aria-hidden="true">Multi-Session Rates <span class="marquee-dot"></span></div>
+    </div>
+  </div>
+  <div class="rule-brass-thin"></div>
+</section>
+
+<!-- ============================= PHILOSOPHY / STORY ============================= -->
+<section id="story" class="relative py-24 md:py-36 overflow-hidden">
+  <div class="z-watermark" style="bottom: -6rem; left: -4rem; font-size: clamp(20rem, 40vw, 40rem);">Z</div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <!-- Section header -->
+    <div class="flex items-baseline justify-between mb-12 md:mb-20 fade-in">
+      <div class="sec-num">Act I · The Approach</div>
+      <div class="mono hidden md:block" style="color:#5A5245;">Essay</div>
+    </div>
+
+    <!-- Pull quote -->
+    <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+      <div class="md:col-span-7 fade-in">
+        <blockquote class="vogue-serif" style="font-size: clamp(2.25rem, 5.5vw, 4.75rem); color:#0E1C36;">
+          &ldquo;Every point is a puzzle.
+          <span style="color:#A8823A;">My job is to hand you the pieces</span> —
+          and the language to put them together.&rdquo;
+        </blockquote>
+        <div class="mt-8 flex items-center gap-4">
+          <div class="rule-brass-thin" style="width:40px;"></div>
+          <span class="mono" style="color:#5A5245;">Jeff Zipman</span>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 fade-in">
+        <p class="drop-cap font-body text-base md:text-[1.05rem] leading-[1.85]" style="color:#1A1A1A;">
+          Thirty years ago, Jeff picked up a clipboard and a camcorder and started
+          coaching tennis in Vancouver. The equipment has changed. The method has not.
+          Every lesson, private or group, ends the same way: a short film of your
+          game, a conversation about what the camera saw, and two or three quiet
+          drills to take home until next time.
+        </p>
+        <p class="font-body text-base md:text-[1.05rem] leading-[1.85] mt-5" style="color:#1A1A1A;">
+          The result is a record of your tennis — stroke by stroke, year after year.
+          It&rsquo;s why so many of his players stay for decades, and why a handful of
+          them are now parents bringing their own juniors to the same courts.
+        </p>
+      </div>
+    </div>
+
+    <div class="rule-brass-thin mt-24"></div>
+  </div>
+</section>
+
+<!-- ============================= LESSONS / SESSIONS ============================= -->
+<section id="lessons" class="relative py-24 md:py-36 overflow-hidden" style="background:#0E1C36; color:#F4EEE0;">
+  <div class="z-watermark" style="top: -4rem; right: -8rem; font-size: clamp(28rem, 55vw, 56rem); color:#A8823A; opacity:0.08;">Z</div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <!-- Section header -->
+    <div class="flex items-baseline justify-between mb-12 md:mb-20 fade-in">
+      <div class="sec-num" style="color:#C09A4E;">
+        <span style="width:22px;height:1px;background:#C09A4E;display:inline-block;"></span>
+        Act II · The Sessions
+      </div>
+      <div class="mono hidden md:block" style="color:rgba(244,238,224,0.5);">Schedule</div>
+    </div>
+
+    <h2 class="vogue-serif fade-in" style="font-size: clamp(3rem, 8vw, 6.5rem); color:#F4EEE0;">
+      Three ways to
+      <span style="color:#C09A4E;">play.</span>
+    </h2>
+    <p class="mt-6 max-w-xl font-body text-[1.02rem] leading-relaxed fade-in" style="color:rgba(244,238,224,0.75);">
+      Sessions are by arrangement. Video analysis and follow-up exercises are included
+      with every lesson, at no additional charge.
+    </p>
+
+    <!-- Bento grid -->
+    <div class="grid md:grid-cols-3 gap-5 md:gap-6 mt-14 md:mt-20">
+      <!-- Card 1 -->
+      <a href="#contact" class="glass-card p-7 md:p-9 fade-in flex flex-col" style="min-height: 360px;">
+        <div class="flex items-start justify-between">
+          <div class="roman">I.</div>
+          <div class="mono" style="color:#C09A4E;">Private</div>
+        </div>
+        <h3 class="vogue-serif mt-8" style="font-size:2rem; color:#F4EEE0;">
+          Private <br/>lessons.
+        </h3>
+        <p class="mt-4 font-body text-sm leading-relaxed" style="color:rgba(244,238,224,0.7);">
+          One coach. One student. A full hour shaped to the problem you walked in with,
+          and the footage to prove it was solved.
+        </p>
+        <div class="mt-auto pt-8 flex items-center justify-between">
+          <span class="small-caps" style="color:#C09A4E;">By arrangement</span>
+          <span class="font-display italic text-2xl" style="color:#C09A4E;">→</span>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="#contact" class="glass-card p-7 md:p-9 fade-in flex flex-col" style="min-height: 360px;">
+        <div class="flex items-start justify-between">
+          <div class="roman">II.</div>
+          <div class="mono" style="color:#C09A4E;">Group</div>
+        </div>
+        <h3 class="vogue-serif mt-8" style="font-size:2rem; color:#F4EEE0;">
+          Group <br/>sessions.
+        </h3>
+        <p class="mt-4 font-body text-sm leading-relaxed" style="color:rgba(244,238,224,0.7);">
+          Two to four players, matched by level. The pace is quicker and the rallies
+          longer. Each player still leaves with their own video.
+        </p>
+        <div class="mt-auto pt-8 flex items-center justify-between">
+          <span class="small-caps" style="color:#C09A4E;">Multi-session rate</span>
+          <span class="font-display italic text-2xl" style="color:#C09A4E;">→</span>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <a href="#contact" class="glass-card p-7 md:p-9 fade-in flex flex-col" style="min-height: 360px;">
+        <div class="flex items-start justify-between">
+          <div class="roman">III.</div>
+          <div class="mono" style="color:#C09A4E;">Tailored</div>
+        </div>
+        <h3 class="vogue-serif mt-8" style="font-size:2rem; color:#F4EEE0;">
+          Juniors &amp; <br/>seniors.
+        </h3>
+        <p class="mt-4 font-body text-sm leading-relaxed" style="color:rgba(244,238,224,0.7);">
+          Fundamentals for players finding the game, and gentler, strategic work for
+          players who want to keep it. Seniors receive a standing discount.
+        </p>
+        <div class="mt-auto pt-8 flex items-center justify-between">
+          <span class="small-caps" style="color:#C09A4E;">Senior discount</span>
+          <span class="font-display italic text-2xl" style="color:#C09A4E;">→</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="rule-brass-thin mt-20 md:mt-28" style="background:#C09A4E;opacity:0.4;"></div>
+  </div>
+</section>
+
+<!-- ============================= VIDEO ANALYSIS FEATURE ============================= -->
+<section id="video" class="relative py-24 md:py-36 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <!-- Section header -->
+    <div class="flex items-baseline justify-between mb-12 md:mb-20 fade-in">
+      <div class="sec-num">Act III · The Film</div>
+      <div class="mono hidden md:block" style="color:#5A5245;">Feature</div>
+    </div>
+
+    <!-- Editorial spread: portrait image + copy column -->
+    <div class="grid md:grid-cols-12 gap-10 md:gap-14 items-start">
+      <!-- Image column -->
+      <figure class="md:col-span-5 fade-in">
+        <div class="portrait-frame" style="background:#0E1C36; padding:0.75rem;">
+          <img src="images/promax-video.jpg" alt="Tablet on a courtside bench showing tennis video analysis at dusk" loading="lazy" style="aspect-ratio: 2/3; object-fit: cover;"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0E1C36,#152543)';this.parentElement.style.aspectRatio='2/3';" />
+          <figcaption class="flex items-center justify-between mt-3 px-1">
+            <span class="mono" style="color:#C09A4E;">Plate 02 — The Review</span>
+            <span class="mono" style="color:rgba(244,238,224,0.6);">01:12:48</span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <!-- Copy column -->
+      <div class="md:col-span-7 md:pl-4 fade-in">
+        <div class="small-caps mb-4" style="color:#A8823A;">The Process</div>
+        <h3 class="vogue-serif" style="font-size: clamp(2.75rem, 6vw, 4.75rem); color:#0E1C36;">
+          See your game from
+          <span class="italic" style="color:#A8823A;">the baseline up.</span>
+        </h3>
+        <p class="mt-6 max-w-xl font-body text-[1.02rem] leading-[1.8]" style="color:#1A1A1A;">
+          Every private lesson ends with a film. A quiet review, the clip paused at
+          the right frame, and two or three drills to take home until next week. The
+          camera has been rolling for thirty years — the method hasn&rsquo;t changed.
+        </p>
+
+        <div class="rule-brass-thin mt-10 mb-10" style="max-width:260px;"></div>
+
+        <ol class="space-y-7">
+          <li class="flex gap-6 items-start">
+            <span class="font-display italic text-3xl" style="color:#A8823A; min-width:2rem;">i.</span>
+            <div>
+              <div class="small-caps" style="color:#1A1A1A;">On court, we film</div>
+              <p class="mt-2 font-body text-[0.98rem] leading-[1.8]" style="color:#1A1A1A;">
+                A phone or tablet at the baseline captures the lesson as it runs.
+                Nothing interrupts the hour.
+              </p>
+            </div>
+          </li>
+          <li class="flex gap-6 items-start">
+            <span class="font-display italic text-3xl" style="color:#A8823A; min-width:2rem;">ii.</span>
+            <div>
+              <div class="small-caps" style="color:#1A1A1A;">Off court, we review</div>
+              <p class="mt-2 font-body text-[0.98rem] leading-[1.8]" style="color:#1A1A1A;">
+                Side-by-side footage, a few stills, and plain-English notes on what
+                the camera saw that you didn&rsquo;t.
+              </p>
+            </div>
+          </li>
+          <li class="flex gap-6 items-start">
+            <span class="font-display italic text-3xl" style="color:#A8823A; min-width:2rem;">iii.</span>
+            <div>
+              <div class="small-caps" style="color:#1A1A1A;">Between lessons, we work</div>
+              <p class="mt-2 font-body text-[0.98rem] leading-[1.8]" style="color:#1A1A1A;">
+                Two or three specific drills matched to the clips — so the next
+                session starts ahead of the last one.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="rule-brass-thin mt-24"></div>
+  </div>
+</section>
+
+<!-- ============================= PRICING / RATES STRIP ============================= -->
+<section class="relative py-24 md:py-32 overflow-hidden" style="background:#EFE6D0;">
+  <div class="z-watermark" style="top: -2rem; left: -2rem; font-size: clamp(20rem, 40vw, 36rem); opacity:0.05;">Z</div>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <div class="flex items-baseline justify-between mb-12 fade-in">
+      <div class="sec-num">Rates &amp; Discounts</div>
+      <div class="mono hidden md:block" style="color:#5A5245;">№ 02</div>
+    </div>
+
+    <div class="rule-brass"></div>
+
+    <div class="grid md:grid-cols-3 gap-0 mt-2">
+      <div class="py-10 md:pr-10 md:border-r fade-in" style="border-color:rgba(168,130,58,0.35);">
+        <div class="small-caps" style="color:#A8823A;">Private lessons</div>
+        <div class="vogue-serif mt-3" style="font-size:2rem; color:#0E1C36;">By arrangement</div>
+        <p class="mt-3 font-body text-sm leading-relaxed" style="color:#1A1A1A;">
+          Single hour or standing weekly slot. Multi-session packages available.
+        </p>
+      </div>
+      <div class="py-10 md:px-10 md:border-r fade-in" style="border-color:rgba(168,130,58,0.35);">
+        <div class="small-caps" style="color:#A8823A;">Group sessions</div>
+        <div class="vogue-serif mt-3" style="font-size:2rem; color:#0E1C36;">Shared rate</div>
+        <p class="mt-3 font-body text-sm leading-relaxed" style="color:#1A1A1A;">
+          Two to four players. Lower per-player rate. Bring your doubles partner.
+        </p>
+      </div>
+      <div class="py-10 md:pl-10 fade-in">
+        <div class="small-caps" style="color:#A8823A;">Seniors · Multi-session</div>
+        <div class="vogue-serif mt-3" style="font-size:2rem; color:#0E1C36;">Standing discount</div>
+        <p class="mt-3 font-body text-sm leading-relaxed" style="color:#1A1A1A;">
+          Standing senior rate, and a further discount when you commit to a block of
+          lessons up front.
+        </p>
+      </div>
+    </div>
+
+    <div class="rule-brass"></div>
+    <div class="mt-4 flex items-center justify-between">
+      <span class="mono" style="color:#5A5245;">All lessons include video analysis</span>
+      <span class="mono" style="color:#A8823A;">· Vancouver ·</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONTACT / CTA ============================= -->
+<section id="contact" class="relative py-24 md:py-36 overflow-hidden" style="background:#0E1C36;">
+  <div class="z-watermark" style="bottom: -10rem; right: -6rem; font-size: clamp(32rem, 60vw, 64rem); color:#A8823A; opacity:0.07;">Z</div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-end">
+      <div class="md:col-span-7 fade-in">
+        <div class="small-caps mb-5" style="color:#C09A4E;">The Invitation</div>
+        <h2 class="vogue-serif" style="font-size: clamp(4rem, 12vw, 10rem); color:#F4EEE0;">
+          Let&rsquo;s <span style="color:#C09A4E;">play.</span>
+        </h2>
+        <p class="mt-8 max-w-lg font-body text-[1.05rem] leading-relaxed" style="color:rgba(244,238,224,0.75);">
+          Send a note or call the club line. Jeff returns every message personally —
+          usually the same day.
+        </p>
+      </div>
+
+      <div class="md:col-span-5 fade-in">
+        <div class="rule-brass-thin" style="background:#C09A4E;opacity:0.5;"></div>
+        <div class="py-8">
+          <div class="small-caps mb-2" style="color:rgba(244,238,224,0.5);">By telephone</div>
+          <a href="tel:604-340-5424" class="font-mono brass-underline" style="font-size:1.75rem; color:#F4EEE0; font-weight:500; letter-spacing:0.04em;">
+            604.340.5424
+          </a>
+        </div>
+        <div class="rule-brass-thin" style="background:#C09A4E;opacity:0.5;"></div>
+        <div class="py-8">
+          <div class="small-caps mb-2" style="color:rgba(244,238,224,0.5);">By post</div>
+          <a href="mailto:jzipman@hotmail.com" class="font-display italic brass-underline" style="font-size:1.5rem; color:#F4EEE0; letter-spacing:-0.01em;">
+            jzipman@hotmail.com
+          </a>
+        </div>
+        <div class="rule-brass-thin" style="background:#C09A4E;opacity:0.5;"></div>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="tel:604-340-5424" class="nav-cta" style="padding:0.9rem 1.75rem;font-size:12px;background:#C09A4E;color:#0E1C36;border-color:#C09A4E;">Book a Lesson</a>
+          <a href="mailto:jzipman@hotmail.com" class="nav-cta" style="padding:0.9rem 1.75rem;font-size:12px;background:transparent;color:#F4EEE0;border-color:rgba(244,238,224,0.3);">Send a note</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="relative pt-16 pb-10" style="background:#0E1C36; color:#F4EEE0;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="rule-brass-thin mb-10" style="background:#A8823A;opacity:0.45;"></div>
+
+    <div class="grid md:grid-cols-3 gap-10 items-start">
+      <div>
+        <div class="crest" style="color:#C09A4E;border-color:#C09A4E;">Z</div>
+        <div class="vogue-serif mt-5" style="font-size:1.75rem; color:#F4EEE0;">Jeff Zipman</div>
+        <div class="mono mt-2" style="color:rgba(244,238,224,0.5);">Vancouver · British Columbia</div>
+      </div>
+      <div>
+        <div class="small-caps mb-3" style="color:#C09A4E;">Contact</div>
+        <a href="tel:604-340-5424" class="brass-underline block font-body text-sm" style="color:#F4EEE0;margin-bottom:0.35rem;">604 · 340 · 5424</a>
+        <a href="mailto:jzipman@hotmail.com" class="brass-underline font-body text-sm" style="color:#F4EEE0;">jzipman@hotmail.com</a>
+      </div>
+      <div>
+        <div class="small-caps mb-3" style="color:#C09A4E;">The file</div>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(244,238,224,0.65);">
+          Thirty years of Vancouver tennis. Tennis Canada Certified Club Professional 1.
+          All lessons include complimentary video analysis and follow-up exercises.
+        </p>
+      </div>
+    </div>
+
+    <div class="rule-brass-thin mt-14" style="background:#A8823A;opacity:0.3;"></div>
+    <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+      <span class="mono" style="color:rgba(244,238,224,0.4);">© 2026 Jeff Zipman · All sessions by arrangement</span>
+      <span class="mono" style="color:rgba(244,238,224,0.4);">The Club Racquet · Vol. IV</span>
+    </div>
+  </div>
+
+  <!-- Banana Bytes credit -->
+  <div style="text-align:center; padding:1.5rem 1rem 0; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45;">
+    <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:#F4EEE0;">
+      Mockup created by Banana Bytes
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Hero words staggered reveal
+  window.addEventListener('DOMContentLoaded', () => {
+    const words = document.querySelectorAll('.hero-word');
+    words.forEach((w, i) => {
+      setTimeout(() => w.classList.add('reveal'), 180 + i * 180);
+    });
+  });
+
+  // Scroll-triggered fade-ins
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

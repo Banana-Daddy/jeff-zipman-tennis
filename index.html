@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeff Zipman Tennis — Design Directions · Banana Bytes</title>
-  <meta name="description" content="Two design directions for Jeff Zipman Tennis. Pick one to explore.">
+  <meta name="description" content="Three design directions for Jeff Zipman Tennis. Pick one to explore.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,6 +31,13 @@
       --ink: #0E1714;
       --clay: #B84A30;
       --chartreuse: #C9E265;
+
+      /* v4 — club racquet */
+      --navy: #0E1C36;
+      --navy-2: #152543;
+      --brass: #A8823A;
+      --brass-2: #C09A4E;
+      --oxford: #F4EEE0;
     }
 
     body {
@@ -115,6 +122,11 @@
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
         padding: 1.5rem;
+      }
+    }
+    @media (min-width: 1280px) {
+      .directions {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
 
@@ -491,6 +503,66 @@
     }
     .fade-in.d4 { animation-delay: 0.6s; }
 
+    /* ============= V4 — CLUB RACQUET ============= */
+    .card-v4 {
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(168,130,58,0.14) 0%, transparent 55%),
+        linear-gradient(180deg, #0E1C36 0%, #152543 100%);
+      color: var(--oxford);
+    }
+    .card-v4::after { box-shadow: inset 0 0 0 1px rgba(168,130,58,0.22); }
+    .card-v4:hover::after { box-shadow: inset 0 0 0 1px rgba(168,130,58,0.55); }
+    .card-v4 .card-label { color: var(--brass-2); font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; }
+    .card-v4 .card-tag   { color: rgba(244,238,224,0.4); font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; }
+    .card-v4 .card-name {
+      font-family: 'Bodoni Moda', serif;
+      font-size: clamp(2.75rem, 8vw, 5.5rem);
+      font-weight: 500;
+      color: var(--oxford);
+      letter-spacing: -0.01em;
+    }
+    .card-v4 .card-name em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--brass-2);
+    }
+    .card-v4 .card-descriptor {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      color: rgba(244,238,224,0.72);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .card-v4 .card-attrs { color: var(--brass-2); }
+    .card-v4 .card-attrs > div { border-color: rgba(168,130,58,0.28); }
+    .card-v4 .card-attrs > div span:first-child { color: rgba(244,238,224,0.5); }
+    .card-v4 .card-attrs > div span:last-child { color: var(--oxford); }
+    .card-v4 .card-enter {
+      color: var(--brass-2);
+      border-color: rgba(168,130,58,0.55);
+    }
+    .card-v4:hover .card-enter { color: var(--oxford); border-color: var(--oxford); }
+    .card-v4 .v4-monogram {
+      position: absolute;
+      right: -1.5rem;
+      bottom: -3rem;
+      font-family: 'Bodoni Moda', serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: clamp(10rem, 22vw, 17rem);
+      line-height: 0.82;
+      color: rgba(168,130,58,0.11);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .card-v4 .v4-rule {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(168,130,58,0.8) 30%, rgba(192,154,78,1) 50%, rgba(168,130,58,0.8) 70%, transparent 100%);
+      z-index: 2;
+    }
+
     /* ============= FOOTER META ============= */
     .meta-strip {
       padding: 1.25rem 1.5rem;
@@ -546,11 +618,11 @@
   <header class="masthead">
     <div class="masthead-folio">
       <span class="mono">Banana Bytes · Studio</span>
-      <span class="mono">Design Directions · 2 + 1 archived</span>
+      <span class="mono">Design Directions · 3 + 1 archived</span>
     </div>
     <h1 class="masthead-title fade-in">Jeff Zipman <em>Tennis</em></h1>
     <p class="masthead-sub fade-in d1">
-      Two active directions. Open either to explore the full mockup. Nothing here is final — pick the one that feels right and we'll push it.
+      Three active directions. Open any of them to explore the full mockup. Nothing here is final — pick the one that feels right and we&rsquo;ll push it.
     </p>
   </header>
 
@@ -602,7 +674,7 @@
       </div>
     </a>
 
-    <!-- V2 · Plain Press (promoted from v3) -->
+    <!-- V3 · Plain Press (promoted from v3) -->
     <a href="index-v3.html" class="card card-v3 fade-in d3">
       <span class="v3-quote" aria-hidden="true">,</span>
 
@@ -643,6 +715,49 @@
         </span>
       </div>
     </a>
+
+    <!-- V4 · Club Racquet (PRO-MAX) -->
+    <a href="index-promax.html" class="card card-v4 fade-in d4">
+      <span class="v4-rule" aria-hidden="true"></span>
+      <span class="v4-monogram" aria-hidden="true">Z</span>
+
+      <div class="card-top">
+        <span class="card-label">Direction · 03</span>
+        <span class="card-tag">Navy · Brass</span>
+      </div>
+
+      <div class="card-mid">
+        <div class="card-name">Club <em>Racquet.</em></div>
+        <p class="card-descriptor">
+          Prep-school blazer meets Vogue serif. Navy and brass over oxford cream, an oversized italic monogram, and a three-act editorial flow. Ralph Lauren courtside, not tech SaaS.
+        </p>
+        <div class="card-attrs">
+          <div>
+            <span>Palette</span>
+            <span>Navy · Brass · Oxford</span>
+          </div>
+          <div>
+            <span>Type</span>
+            <span>Bodoni Moda · Manrope</span>
+          </div>
+          <div>
+            <span>Mood</span>
+            <span>Member-Only · Heritage</span>
+          </div>
+          <div>
+            <span>Signature</span>
+            <span>Italic Z monogram</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-bottom">
+        <span class="card-enter">
+          <span>View Club Racquet</span>
+          <span class="arrow">→</span>
+        </span>
+      </div>
+    </a>
   </main>
 
   <!-- ============================================================
@@ -664,7 +779,7 @@
        ============================================================ -->
   <div class="meta-strip">
     <span class="mono">Jeff Zipman Tennis · Vancouver, BC</span>
-    <span class="mono">Two live directions · One archived</span>
+    <span class="mono">Three live directions · One archived</span>
   </div>
 
   <!-- ============================================================

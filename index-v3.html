@@ -300,8 +300,8 @@
     /* ============= SERVICE TABLE ============= */
     .service-row {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 1.25rem;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
       padding: 1.75rem 0.25rem;
       border-top: 1px solid rgba(14,23,20,0.18);
       transition: background 0.4s ease, padding 0.3s ease;
@@ -311,10 +311,19 @@
     .service-row:hover { background: rgba(201,226,101,0.15); padding-left: 0.75rem; }
     @media (min-width: 768px) {
       .service-row {
-        grid-template-columns: 64px 260px 1fr 140px;
-        gap: 2.25rem;
-        padding: 2.5rem 0.5rem;
+        grid-template-columns: 300px 1fr;
+        gap: 2.5rem;
+        padding: 2.25rem 0.5rem;
+        align-items: baseline;
       }
+    }
+    .service-num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-variation-settings: 'opsz' 144;
+      font-weight: 300;
+      color: #B84A30;
+      margin-right: 0.55rem;
     }
 
     /* ============= SIGNATURE ============= */
@@ -423,7 +432,7 @@
   <!-- ============================================================
        STICKY SCOREBOARD HEADER
        ============================================================ -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-ink text-paper border-b border-paper/10">
+  <header class="relative bg-ink text-paper border-b border-paper/10">
     <!-- Ticker strip -->
     <div class="overflow-hidden h-7 flex items-center border-b border-paper/10">
       <div class="ticker-track">
@@ -473,15 +482,12 @@
         <a href="#chapter-03" class="hover:text-paper transition-colors">03 · Analysis</a>
         <a href="#chapter-04" class="hover:text-paper transition-colors">04 · Rates</a>
       </div>
-      <a href="#enlist" class="label flex items-center gap-2 text-paper border border-paper/40 px-3 py-1.5 hover:bg-chartreuse hover:text-ink hover:border-chartreuse transition-all">
-        <span>Enlist</span>
+      <a href="#contact" class="label flex items-center gap-2 text-paper border border-paper/40 px-3 py-1.5 hover:bg-chartreuse hover:text-ink hover:border-chartreuse transition-all">
+        <span>Book</span>
         <span class="arrow">→</span>
       </a>
     </nav>
   </header>
-
-  <!-- Spacer for fixed header -->
-  <div class="h-[76px]"></div>
 
   <!-- ============================================================
        MASTHEAD / HERO
@@ -510,7 +516,7 @@
 
         <!-- CTA row -->
         <div class="mt-10 md:mt-14 flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center fade" style="transition-delay: 0.55s">
-          <a href="#enlist" class="cta-slab">
+          <a href="#contact" class="cta-slab">
             <span>Book a Session</span>
             <span class="arrow" style="transition:transform 0.4s cubic-bezier(0.19,1,0.22,1);">→</span>
           </a>
@@ -678,64 +684,47 @@
           </p>
 
           <!-- Table header -->
-          <div class="hidden md:grid grid-cols-[64px_260px_1fr_140px] gap-9 pb-3 border-b border-ink/30">
-            <div class="label text-ink/45">No.</div>
+          <div class="hidden md:grid grid-cols-[300px_1fr] gap-10 pb-3 border-b border-ink/30">
             <div class="label text-ink/45">Format</div>
             <div class="label text-ink/45">Description</div>
-            <div class="label text-ink/45 text-right">Notes</div>
           </div>
 
           <!-- Service 01 -->
           <div class="service-row fade">
-            <div class="f-body-serif italic text-clay text-xl md:text-2xl row-start-1">01</div>
-            <div class="col-start-2 row-start-1 md:col-start-2">
-              <div class="f-display text-2xl md:text-3xl text-ink mb-1">Private Lessons</div>
-              <div class="label text-ink/50 md:hidden">One-on-One</div>
+            <div class="f-display text-2xl md:text-3xl text-ink leading-tight">
+              <span class="service-num">01</span>Private Lessons
             </div>
-            <div class="col-start-2 md:col-start-3 mt-3 md:mt-0">
+            <div>
               <p class="f-body-serif text-ink/75 text-base leading-relaxed">
-                One-on-one coaching built around your goals. Technique refinement, match strategy, and targeted drill work — prescribed after observation, not templated.
+                One-on-one coaching built around your goals. Technique refinement, match strategy, and targeted drill work — prescribed after observation, not templated. All levels welcome.
               </p>
-            </div>
-            <div class="col-start-2 md:col-start-4 md:text-right mt-3 md:mt-0">
-              <span class="label text-ink/70">All Levels</span>
             </div>
           </div>
 
           <!-- Service 02 -->
           <div class="service-row fade" style="transition-delay: 0.1s">
-            <div class="f-body-serif italic text-clay text-xl md:text-2xl row-start-1">02</div>
-            <div class="col-start-2 row-start-1 md:col-start-2">
-              <div class="f-display text-2xl md:text-3xl text-ink mb-1">Group Sessions</div>
-              <div class="label text-ink/50 md:hidden">2 → 4 Players</div>
+            <div class="f-display text-2xl md:text-3xl text-ink leading-tight">
+              <span class="service-num">02</span>Group Sessions
             </div>
-            <div class="col-start-2 md:col-start-3 mt-3 md:mt-0">
+            <div>
               <p class="f-body-serif text-ink/75 text-base leading-relaxed">
-                Small-group coaching that builds competitive skills through structured drills and match play. Learn with — and push — each other.
+                Small-group coaching that builds competitive skills through structured drills and match play. Learn with — and push — each other. Multi-session rates available.
               </p>
-            </div>
-            <div class="col-start-2 md:col-start-4 md:text-right mt-3 md:mt-0">
-              <span class="label text-ink/70">Multi-Session</span>
             </div>
           </div>
 
           <!-- Service 03 — featured -->
           <div class="service-row fade" style="transition-delay: 0.2s">
-            <div class="f-body-serif italic text-clay text-xl md:text-2xl row-start-1">03</div>
-            <div class="col-start-2 row-start-1 md:col-start-2">
-              <div class="flex items-center gap-2 mb-1 flex-wrap">
-                <div class="f-display text-2xl md:text-3xl text-ink">Video Analysis</div>
-                <span class="label bg-chartreuse text-ink px-2 py-0.5">Included</span>
+            <div class="flex items-center gap-2 flex-wrap">
+              <div class="f-display text-2xl md:text-3xl text-ink leading-tight">
+                <span class="service-num">03</span>Video Analysis
               </div>
-              <div class="label text-ink/50 md:hidden">Every Student</div>
+              <span class="label bg-chartreuse text-ink px-2 py-0.5">Included</span>
             </div>
-            <div class="col-start-2 md:col-start-3 mt-3 md:mt-0">
+            <div>
               <p class="f-body-serif text-ink/75 text-base leading-relaxed">
                 Complimentary stroke-by-stroke review. Jeff records, breaks down form, and delivers a written set of follow-up drills. No surcharge. Every student.
               </p>
-            </div>
-            <div class="md:col-start-4 md:text-right mt-2 md:mt-0">
-              <span class="label text-clay">Complimentary</span>
             </div>
           </div>
 
@@ -792,7 +781,7 @@
             </li>
           </ul>
 
-          <a href="#enlist" class="cta-slab fade" style="transition-delay: 0.4s">
+          <a href="#contact" class="cta-slab fade" style="transition-delay: 0.4s">
             <span>Claim Your Analysis</span>
             <span class="arrow" style="transition:transform 0.4s cubic-bezier(0.19,1,0.22,1);">→</span>
           </a>
@@ -912,7 +901,7 @@
   <!-- ============================================================
        ENLIST / CONTACT
        ============================================================ -->
-  <section id="enlist" class="mt-24 md:mt-40 pt-20 md:pt-28 pb-16 md:pb-24 bg-ink text-paper relative overflow-hidden">
+  <section id="contact" class="mt-24 md:mt-40 pt-20 md:pt-28 pb-16 md:pb-24 bg-ink text-paper relative overflow-hidden">
     <div class="px-4 md:px-8 max-w-[1400px] mx-auto">
 
 
@@ -920,7 +909,7 @@
 
         <!-- Headline col -->
         <div class="col-span-12 md:col-span-7">
-          <div class="label text-chartreuse mb-6 fade">To Enlist →</div>
+          <div class="label text-chartreuse mb-6 fade">Get in touch.</div>
           <h2 class="f-display display-lg text-paper fade" style="transition-delay: 0.05s">
             Next <em class="f-display-italic text-chartreuse">session</em><br>
             starts with<br>

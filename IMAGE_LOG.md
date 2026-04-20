@@ -46,16 +46,20 @@
 
 ### #4 — promax-portrait.jpg (PRO-MAX build)
 ![promax-portrait.jpg](images/promax-portrait.jpg)
-- **Timestamp**: 2026-04-19 16:15
-- **Tier**: 1 | **API**: Grok Imagine Standard 2K | **Cost**: $0.02
-- **Exec Time**: 8s
+- **Timestamp (v1)**: 2026-04-19 16:15
+- **Timestamp (edit)**: 2026-04-19 16:57
+- **Tier**: 1 + post-delivery edit
+- **API**: Grok Imagine Standard 2K (gen) → Gemini Nano Banana Pro 2K (edit)
+- **Cost**: $0.02 (Grok gen) + $0.134 (NB Pro edit) = $0.154
+- **Exec Time**: 8s (gen), 38s (edit)
 - **Slot**: Hero right column — framed portrait (3:4 aspect)
-- **Prompt**: "Editorial portrait of a tennis coach viewed from behind, standing at the baseline of a quiet Pacific Northwest hard court in late afternoon, watching his student across the net. He wears a cream cable-knit cardigan over tennis whites, a vintage wooden racquet resting on his shoulder, a brass-buckled leather bag at his feet on the court surface. Soft mist hangs in the air from recent rain, backlit by low golden sunlight breaking through evergreen trees at the court's edge. Shot on 85mm with shallow depth of field, warm cream and navy palette with brass highlights catching in the metalwork and in the light. Ralph Lauren Polo editorial feel, Vogue sport spread, classic and unhurried, fine 35mm film grain, no visible face."
-- **Claude Review**: Use Case 9/10 | Prompt Accuracy 9/10
-- **Grok QA Review**: Technical 7/10 | Prompt Accuracy 9/10 | Issues: racquet handle slightly clips into sweater, "PRINCE" logo on grip is warped, distant student figure has soft feet, minor specular reflection on bag
-- **Attempts**: 1/2
-- **Status**: ✓ Used
-- **Notes**: Strong Ralph Lauren / Vogue sport mood. Defects are technical minutiae that are not visible at display size (portrait appears at ~30% viewport width). Accepted on first attempt. Face not visible by design — atmospheric filler, does not depict Jeff.
+- **Original prompt**: "Editorial portrait of a tennis coach viewed from behind, standing at the baseline of a quiet Pacific Northwest hard court in late afternoon, watching his student across the net. He wears a cream cable-knit cardigan over tennis whites, a vintage wooden racquet resting on his shoulder, a brass-buckled leather bag at his feet on the court surface. Soft mist hangs in the air from recent rain, backlit by low golden sunlight breaking through evergreen trees at the court's edge. Shot on 85mm with shallow depth of field, warm cream and navy palette with brass highlights catching in the metalwork and in the light. Ralph Lauren Polo editorial feel, Vogue sport spread, classic and unhurried, fine 35mm film grain, no visible face."
+- **Edit prompt**: "Move the racket from the coach's back to being held naturally at his right side in his right hand, hanging down at arm's length with the racket head near his hip or upper thigh — a between-points side-carry. Keep absolutely everything else identical: cardigan, tennis whites, leather bag, PNW court with evergreens and mist, golden-hour backlight, pose from behind, framing, composition, grain, palette. Only reposition the right arm and racket. Photorealistic, consistent lighting and shadow."
+- **Claude Review (edit)**: Use Case 10/10 | Prompt Accuracy 10/10
+- **Grok QA Review (edit)**: Technical 4/10 | Prompt Accuracy 6/10 | Issues (at close crop): right hand has fused/malformed fingers and anatomically impossible thumb grip; rim-light does not wrap the new arm or racquet; racquet casts no shadow on the court though the bag does; composite edges at cardigan/new-arm junction
+- **Attempts**: 1/2 (gen) + 1 targeted edit
+- **Status**: ✓ Used — approved by Zack at display size
+- **Notes**: Zack-requested post-delivery edit. Attempt 1 (racquet over shoulder) had Grok flag the handle as clipping the sweater; swapped to a side-carry at his request. Grok's close-crop technical score is below the usual ≥5 threshold, but the defects live only at zoom — at the hero display width (~500px) the image reads as production-quality Ralph Lauren / Vogue editorial. Original preserved as `images/promax-portrait-attempt1.jpg` per the no-delete memory rule. Accepted by Zack explicitly after visual review.
 
 ---
 
@@ -118,10 +122,10 @@
 
 ---
 
-## Total Cost: $0.14
+## Total Cost: $0.274
 - v1 (Midnight Gold): 3 × Grok = $0.06
-- v4 (Club Racquet / PRO-MAX): 2 × Grok = $0.04
+- v4 (Club Racquet / PRO-MAX): 2 × Grok + 1 × NB Pro edit = $0.04 + $0.134 = $0.174
 - v5 (Baseline / FRONTEND-FX): 2 × Grok = $0.04
-- 0 edits, 0 rejections (single 20:9 API rejection was unbilled)
-- All 7 images passed QA on first attempt — hard-cap reserves untouched
+- 1 NB Pro edit (post-delivery, user-requested racquet reposition on v4 portrait)
+- 0 rejections (single 20:9 API rejection was unbilled)
 - Per-build cap ($0.75) and monthly cap ($10.00) both comfortably under
